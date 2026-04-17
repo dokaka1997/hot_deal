@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+      timeout: 2s
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: hotDealScheduler
+            instanceId: AUTO
+          threadPool:
+            threadCount: 10
+          jobStore:
+            isClustered: true
+            clusterCheckinInterval: 20000
+
+app:
+  ingestion:
+    bootstrap-sample-source: false
+  normalization:
+    batch-size: ${NORMALIZATION_BATCH_SIZE:500}
+  scoring:
+    lookback-days: ${SCORING_LOOKBACK_DAYS:30}
+    default-source-confidence: ${SCORING_DEFAULT_SOURCE_CONFIDENCE:0.75}
+    snapshot:
+      min-interval-minutes: ${SCORING_SNAPSHOT_MIN_INTERVAL_MINUTES:180}
+    scheduler:
+      batch-size: ${SCORING_SCHEDULER_BATCH_SIZE:500}
+  alert:
+    matching:
+      bootstrap-scan-size: ${ALERT_BOOTSTRAP_SCAN_SIZE:500}
+  security:
+    admin:
+      username: ${APP_ADMIN_USERNAME}
+      password: ${APP_ADMIN_PASSWORD}
+    service:
+      username: ${APP_SERVICE_USERNAME}
+      password: ${APP_SERVICE_PASSWORD}

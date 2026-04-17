@@ -1,0 +1,13 @@
+package com.hotdeal.platform.common.exception;
+
+public enum ErrorCode {
+    INVALID_INPUT,
+    VALIDATION_ERROR,
+    CONSTRAINT_VIOLATION,
+    RESOURCE_NOT_FOUND,
+    BUSINESS_RULE_VIOLATION,
+    AUTHENTICATION_REQUIRED,
+    OPERATION_FORBIDDEN,
+    INTERNAL_ERROR,
+    BAD_REQUEST
+}

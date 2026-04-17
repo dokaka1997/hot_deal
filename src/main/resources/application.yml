@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: hot-deal-platform
+  profiles:
+    default: local
+  messages:
+    basename: messages
+  jackson:
+    time-zone: UTC
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: when_authorized
+      group:
+        liveness:
+          include: livenessState,ping
+        readiness:
+          include: readinessState,db,redis,ping
+  info:
+    env:
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+app:
+  ingestion:
+    bootstrap-sample-source: ${INGESTION_BOOTSTRAP_SAMPLE_SOURCE:true}
+    scheduler:
+      enabled: ${INGESTION_SCHEDULER_ENABLED:true}
+      cron: "${INGESTION_SCHEDULER_CRON:0 */5 * * * *}"
+    retry:
+      max-attempts: ${INGESTION_RETRY_MAX_ATTEMPTS:2}
+      backoff-ms: ${INGESTION_RETRY_BACKOFF_MS:500}
+  normalization:
+    batch-size: ${NORMALIZATION_BATCH_SIZE:100}
+    scheduler:
+      enabled: ${NORMALIZATION_SCHEDULER_ENABLED:true}
+      cron: "${NORMALIZATION_SCHEDULER_CRON:30 */5 * * * *}"
+  scoring:
+    lookback-days: ${SCORING_LOOKBACK_DAYS:30}
+    default-source-confidence: ${SCORING_DEFAULT_SOURCE_CONFIDENCE:0.6}
+    snapshot:
+      min-interval-minutes: ${SCORING_SNAPSHOT_MIN_INTERVAL_MINUTES:60}
+    scheduler:
+      enabled: ${SCORING_SCHEDULER_ENABLED:true}
+      cron: "${SCORING_SCHEDULER_CRON:15 */10 * * * *}"
+      batch-size: ${SCORING_SCHEDULER_BATCH_SIZE:200}
+  alert:
+    matching:
+      bootstrap-scan-size: ${ALERT_BOOTSTRAP_SCAN_SIZE:200}
+
+logging:
+  level:
+    root: INFO
+    com.hotdeal.platform: INFO
+  pattern:
+    # Structured key-value logs suitable for log aggregation systems.
+    console: "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} level=%-5level traceId=%X{traceId:-} spanId=%X{spanId:-} logger=%logger{36} msg=\"%msg\"%n"

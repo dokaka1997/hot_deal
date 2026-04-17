@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: ${TEST_DB_URL:jdbc:postgresql://localhost:5432/hot_deal_test}
+    username: ${TEST_DB_USERNAME:hotdeal}
+    password: ${TEST_DB_PASSWORD:hotdeal}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+    show-sql: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  data:
+    redis:
+      host: ${TEST_REDIS_HOST:localhost}
+      port: ${TEST_REDIS_PORT:6379}
+      timeout: 2s
+  quartz:
+    job-store-type: memory
+
+app:
+  ingestion:
+    bootstrap-sample-source: false
+    scheduler:
+      enabled: false
+  normalization:
+    scheduler:
+      enabled: false
+  scoring:
+    scheduler:
+      enabled: false
+  alert:
+    matching:
+      bootstrap-scan-size: 50
+  security:
+    admin:
+      username: ${TEST_ADMIN_USERNAME:admin}
+      password: ${TEST_ADMIN_PASSWORD:admin123}
+    service:
+      username: ${TEST_SERVICE_USERNAME:service}
+      password: ${TEST_SERVICE_PASSWORD:service123}

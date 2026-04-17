@@ -1,0 +1,771 @@
+<html lang="vi"><head></head><body class="bg-background text-on-background font-body antialiased selection:bg-primary-container selection:text-on-primary-container">```html
+
+
+
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hot Deal - Săn Deal Hời</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#e5e9eb",
+                      "on-secondary-container": "#455367",
+                      "on-secondary-fixed": "#324054",
+                      "surface-container-low": "#eef1f3",
+                      "primary-fixed-dim": "#ff5d1f",
+                      "secondary-container": "#d5e3fd",
+                      "on-surface-variant": "#595c5e",
+                      "surface": "#f5f7f9",
+                      "tertiary-fixed-dim": "#ff7984",
+                      "on-error-container": "#570008",
+                      "on-background": "#2c2f31",
+                      "tertiary-dim": "#a2002d",
+                      "secondary": "#4e5c71",
+                      "secondary-fixed": "#d5e3fd",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#c7d5ee",
+                      "primary": "#a73300",
+                      "surface-dim": "#d0d5d8",
+                      "on-primary": "#ffefeb",
+                      "on-secondary-fixed-variant": "#4e5c71",
+                      "surface-tint": "#a73300",
+                      "on-tertiary-fixed": "#39000a",
+                      "tertiary": "#b90035",
+                      "background": "#f5f7f9",
+                      "on-secondary": "#eef3ff",
+                      "primary-dim": "#922c00",
+                      "outline-variant": "#abadaf",
+                      "inverse-primary": "#ff5710",
+                      "on-primary-container": "#451000",
+                      "primary-container": "#ff794a",
+                      "on-primary-fixed": "#000000",
+                      "surface-bright": "#f5f7f9",
+                      "surface-variant": "#d9dde0",
+                      "inverse-on-surface": "#9a9d9f",
+                      "on-tertiary-fixed-variant": "#78001f",
+                      "on-primary-fixed-variant": "#561600",
+                      "surface-container-high": "#dfe3e6",
+                      "secondary-dim": "#425065",
+                      "inverse-surface": "#0b0f10",
+                      "on-tertiary-container": "#68001a",
+                      "tertiary-container": "#ff9198",
+                      "primary-fixed": "#ff794a",
+                      "error-container": "#fb5151",
+                      "on-tertiary": "#ffefef",
+                      "on-error": "#ffefee",
+                      "surface-container-highest": "#d9dde0",
+                      "tertiary-fixed": "#ff9198",
+                      "error": "#b31b25",
+                      "error-dim": "#9f0519",
+                      "outline": "#747779",
+                      "on-surface": "#2c2f31"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body": [
+                              "Inter"
+                      ],
+                      "label": [
+                              "Inter"
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1600px] mx-auto">
+<div class="flex items-center gap-10">
+<a class="text-3xl font-black italic tracking-tighter text-[#FF5200] font-headline hover:opacity-90 transition-opacity" href="#">Hot Deal</a>
+<div class="relative hidden md:flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
+<input class="pl-12 pr-4 py-2.5 w-96 rounded-full bg-slate-50/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-inner text-sm font-label focus:ring-2 focus:ring-[#FF5200]/20 focus:border-[#FF5200] transition-all placeholder:text-slate-400 text-slate-800 dark:text-slate-200 focus:outline-none focus:bg-white dark:focus:bg-slate-900" placeholder="Tìm kiếm deal, sản phẩm..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-slate-500 dark:text-slate-400 hover:text-[#FF5200] transition-colors p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+<button class="text-slate-500 dark:text-slate-400 hover:text-[#FF5200] transition-colors p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[24px]">person</span>
+</button>
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#FF5200] transition-colors px-2" href="#">My Deals</a>
+<a class="px-6 py-2.5 bg-[#FF5200] text-white text-sm font-bold rounded-full shadow-[0_4px_12px_rgba(255,82,0,0.3)] hover:shadow-[0_6px_16px_rgba(255,82,0,0.4)] hover:-translate-y-0.5 transition-all" href="#">Login</a>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- Side Navigation (Web) -->
+<aside class="hidden lg:flex flex-col p-4 space-y-2 bg-slate-50 dark:bg-slate-950 h-full w-64 border-r-0 fixed left-0 top-16 bottom-0 z-40 overflow-y-auto font-headline text-sm font-semibold">
+<div class="px-4 py-2 mb-2">
+<h3 class="text-on-surface text-lg font-bold">Categories</h3>
+<p class="text-xs text-outline font-body font-normal">Browse curated deals</p>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-orange-600 shadow-sm rounded-lg active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]">apps</span>
+                All
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">smartphone</span>
+                Phones
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">laptop</span>
+                Laptops
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">headphones</span>
+                Headphones
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">devices</span>
+                Gadgets
+            </a>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 xl:mr-96 p-6 lg:p-8 space-y-12">
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-primary to-primary-container rounded-2xl p-8 lg:p-12 text-on-primary relative overflow-hidden shadow-lg">
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-headline text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">SĂN DEAL HỜI - <br/>GIẢM ĐẾN 50%</h1>
+<p class="font-body text-on-primary/90 text-lg mb-8 max-w-lg">Khám phá hàng ngàn ưu đãi độc quyền từ các thương hiệu hàng đầu. Cơ hội sở hữu sản phẩm công nghệ với giá không tưởng.</p>
+<button class="bg-surface-container-lowest text-primary font-headline font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2">
+                        Khám phá ngay <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -right-10 -top-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute right-20 -bottom-20 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Category Icons Row -->
+<section>
+<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-primary flex items-center justify-center bg-orange-50 text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">grid_view</span>
+</div>
+<span class="text-sm font-semibold text-primary">Tất cả</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">smartphone</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Điện thoại</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">laptop_mac</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Laptop</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">headphones</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Tai nghe</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">watch</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Đồng hồ</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">styler</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Thời trang</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">snowshoeing</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Giày dép</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">kitchen</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Gia dụng</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">face_retouching_natural</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Làm đẹp</span>
+</a>
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">more_horiz</span>
+</div>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Xem thêm</span>
+</a>
+</div>
+</section>
+<!-- Deal Hot Hôm Nay -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-bold font-headline flex items-center gap-2 text-on-surface">
+<span class="text-2xl text-primary">🔥</span> Deal Hot Hôm Nay
+            </h2>
+<p class="text-sm text-outline mt-1 font-body">Những deal được săn nhiều nhất hôm nay</p>
+</div>
+<a class="text-primary text-sm font-semibold hover:underline hidden sm:block" href="#">Xem tất cả</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-38%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">headphones</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Tai nghe Bluetooth AirPods Pro 2</h3>
+<span class="text-xs text-outline flex items-center gap-1">Shopee Mall</span>
+<div class="mt-auto pt-2">
+<span class="font-bold text-primary text-lg">4.290.000₫</span>
+<span class="text-xs text-outline line-through ml-2">6.990.000₫</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 1.2k đã săn
+                </div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-15%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">smartphone</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">iPhone 15 Pro Max 256GB</h3>
+<span class="text-xs text-outline flex items-center gap-1">FPT Shop</span>
+<div class="mt-auto pt-2">
+<span class="font-bold text-primary text-lg">29.990.000₫</span>
+<span class="text-xs text-outline line-through ml-2">34.990.000₫</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 856 đã săn
+                </div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-20%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">laptop_mac</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Laptop ASUS TUF Gaming A15</h3>
+<span class="text-xs text-outline flex items-center gap-1">Lazada</span>
+<div class="mt-auto pt-2">
+<span class="font-bold text-primary text-lg">18.990.000₫</span>
+<span class="text-xs text-outline line-through ml-2">23.990.000₫</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 642 đã săn
+                </div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-30%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">snowshoeing</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Giày Nike Air Force 1 '07</h3>
+<span class="text-xs text-outline flex items-center gap-1">Shopee</span>
+<div class="mt-auto pt-2">
+<span class="font-bold text-primary text-lg">1.399.000₫</span>
+<span class="text-xs text-outline line-through ml-2">1.999.000₫</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 512 đã săn
+                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Flash Sale Đang Diễn Ra -->
+<section>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 gap-4">
+<div>
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-bold font-headline flex items-center gap-2 text-on-surface">
+<span class="text-2xl text-primary">⚡</span> Flash Sale Đang Diễn Ra
+                </h2>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="bg-error text-on-error rounded px-2 py-1">02</span>
+<span class="text-error">:</span>
+<span class="bg-error text-on-error rounded px-2 py-1">45</span>
+<span class="text-error">:</span>
+<span class="bg-error text-on-error rounded px-2 py-1">18</span>
+</div>
+</div>
+<p class="text-sm text-outline mt-1 font-body">Săn nhanh kẻo lỡ! Số lượng có hạn</p>
+</div>
+<a class="text-primary text-sm font-semibold hover:underline" href="#">Xem tất cả</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Flash Sale Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-41%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">earbuds</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Tai nghe Sony WF-C700N</h3>
+<div class="mt-auto pt-2">
+<span class="font-bold text-error text-lg">1.390.000₫</span>
+<span class="text-xs text-outline line-through ml-2">2.390.000₫</span>
+</div>
+<div class="mt-2">
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 68%"></div>
+</div>
+<p class="text-xs text-error font-semibold mt-1">Đã bán 68%</p>
+</div>
+</div>
+</div>
+<!-- Flash Sale Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-33%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">watch</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Đồng hồ Casio G-Shock GA-...</h3>
+<div class="mt-auto pt-2">
+<span class="font-bold text-error text-lg">1.990.000₫</span>
+<span class="text-xs text-outline line-through ml-2">2.990.000₫</span>
+</div>
+<div class="mt-2">
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 54%"></div>
+</div>
+<p class="text-xs text-error font-semibold mt-1">Đã bán 54%</p>
+</div>
+</div>
+</div>
+<!-- Flash Sale Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-25%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">keyboard</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Bàn phím cơ Akko 3068B Plus</h3>
+<div class="mt-auto pt-2">
+<span class="font-bold text-error text-lg">890.000₫</span>
+<span class="text-xs text-outline line-through ml-2">1.190.000₫</span>
+</div>
+<div class="mt-2">
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 42%"></div>
+</div>
+<p class="text-xs text-error font-semibold mt-1">Đã bán 42%</p>
+</div>
+</div>
+</div>
+<!-- Flash Sale Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-35%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-outline-variant">spa</span>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<h3 class="font-bold text-sm text-on-surface line-clamp-2">Kem dưỡng La Roche-Posay</h3>
+<div class="mt-auto pt-2">
+<span class="font-bold text-error text-lg">455.000₫</span>
+<span class="text-xs text-outline line-through ml-2">700.000₫</span>
+</div>
+<div class="mt-2">
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 31%"></div>
+</div>
+<p class="text-xs text-error font-semibold mt-1">Đã bán 31%</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mã Giảm Giá Mới Nhất -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-bold font-headline flex items-center gap-2 text-on-surface">
+<span class="text-2xl text-primary">🎟️</span> Mã Giảm Giá Mới Nhất
+            </h2>
+<p class="text-sm text-outline mt-1 font-body">Thu thập mã và áp dụng khi thanh toán</p>
+</div>
+<a class="text-primary text-sm font-semibold hover:underline hidden sm:block" href="#">Xem tất cả</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Voucher 1 -->
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-orange-50">
+<span class="material-symbols-outlined text-4xl text-primary">shopping_bag</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="text-primary font-bold text-sm">SHOPEE10K</h4>
+<p class="text-xs text-on-surface mb-2 mt-1">Giảm 10K cho đơn từ 99K</p>
+<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+</div>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+</div>
+</div>
+<!-- Voucher 2 -->
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-blue-50">
+<span class="material-symbols-outlined text-4xl text-blue-600">storefront</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="text-blue-600 font-bold text-sm">LAZADA50K</h4>
+<p class="text-xs text-on-surface mb-2 mt-1">Giảm 50K cho đơn từ 500K</p>
+<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+</div>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+</div>
+</div>
+<!-- Voucher 3 -->
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-cyan-50">
+<span class="material-symbols-outlined text-4xl text-cyan-500">shopping_cart</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="text-cyan-500 font-bold text-sm">TIKI30K</h4>
+<p class="text-xs text-on-surface mb-2 mt-1">Giảm 30K cho đơn từ 299K</p>
+<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+</div>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+</div>
+</div>
+<!-- Voucher 4 -->
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-green-50">
+<span class="material-symbols-outlined text-4xl text-green-600">local_shipping</span>
+</div>
+<div class="flex-1 p-4 flex flex-col justify-between">
+<div>
+<h4 class="text-green-600 font-bold text-sm">FREESHIP</h4>
+<p class="text-xs text-on-surface mb-2 mt-1">Freeship đơn từ 0Đ</p>
+<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+</div>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Site Footer -->
+<footer class="mt-12 border-t border-outline-variant/15 pt-12 pb-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+<div class="lg:col-span-2">
+<a class="text-2xl font-black italic tracking-tighter text-orange-600 dark:text-orange-500 font-headline mb-4 inline-block" href="#">Hot Deal</a>
+<p class="text-sm text-outline font-body leading-relaxed max-w-sm mb-6">Nền tảng tổng hợp ưu đãi, mã giảm giá và flash sale từ các sàn thương mại điện tử hàng đầu. Giúp bạn mua sắm thông minh, tiết kiệm tối đa.</p>
+<div class="flex gap-4">
+<!-- Social icons -->
+<a class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-primary hover:border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-primary hover:border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-on-surface hover:text-primary hover:border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-4">Về chúng tôi</h4>
+<ul class="space-y-3 text-sm font-body text-outline">
+<li><a class="hover:text-primary transition-colors" href="#">Giới thiệu Hot Deal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tuyển dụng</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tin tức</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Đối tác</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-4">Top Categories</h4>
+<ul class="space-y-3 text-sm font-body text-outline">
+<li><a class="hover:text-primary transition-colors" href="#">Phones</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Laptops</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Headphones</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Gadgets</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface mb-4">Liên hệ &amp; Hỗ trợ</h4>
+<ul class="space-y-3 text-sm font-body text-outline">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">location_on</span>
+<span>123 Tòa nhà ABC, Phường 1, Quận 1, TP.HCM</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">call</span>
+<span>1900 1234</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">mail</span>
+<span>support@hotdeal.vn</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/15 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-outline font-body">
+<p>© 2025 Hot Deal. Tất cả quyền được bảo lưu.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
+<a class="hover:text-primary transition-colors" href="#">Điều khoản dịch vụ</a>
+<a class="hover:text-primary transition-colors" href="#">Quy chế hoạt động</a>
+</div>
+</div>
+</footer></main>
+<!-- Right Detail Panel -->
+<aside class="hidden xl:block w-96 bg-surface-container-lowest border-l border-outline-variant/15 fixed right-0 top-16 bottom-0 overflow-y-auto z-40 hide-scrollbar">
+<div class="p-6">
+<!-- Breadcrumb -->
+<div class="flex items-center gap-2 text-xs text-outline mb-4">
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<a class="hover:text-primary" href="#">Trang chủ</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Điện thoại</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold truncate">iPhone 15 Pro Max 256GB</span>
+</div>
+<!-- Product Summary -->
+<div class="mb-6">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-lg font-bold text-on-surface">iPhone 15 Pro Max 256GB</h2>
+<button class="text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite_border</span>
+</button>
+</div>
+<div class="flex items-center gap-3 text-xs mb-3">
+<span class="flex items-center gap-1 text-on-surface"><span class="material-symbols-outlined text-sm text-primary">storefront</span> FPT Shop</span>
+<span class="bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">Uy tín</span>
+<span class="flex items-center gap-1 text-outline"><span class="material-symbols-outlined text-sm text-yellow-500">star</span> 4.8 <span class="font-normal">(12.5k đánh giá)</span></span>
+</div>
+<div class="flex items-end gap-3 mb-2">
+<span class="text-2xl font-bold text-error">29.990.000đ</span>
+<span class="text-sm text-outline line-through mb-1">34.990.000đ</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-orange-50 text-primary text-xs font-semibold px-2 py-1 rounded mb-4">
+<span class="material-symbols-outlined text-[14px]">loyalty</span> Tiết kiệm: 5.000.000đ
+            </div>
+<div class="flex flex-col gap-2">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-lg text-sm font-bold shadow-sm hover:shadow-md hover:bg-primary-dim transition-all flex justify-center items-center gap-2">
+                    Xem tại FPT Shop <span class="material-symbols-outlined text-sm">open_in_new</span>
+</button>
+<button class="w-full border border-outline-variant/30 text-on-surface bg-surface-container-lowest py-2.5 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined text-sm">bookmark_border</span> Lưu deal
+                </button>
+</div>
+</div>
+<!-- Guarantees Grid -->
+<div class="grid grid-cols-4 gap-2 border-y border-outline-variant/15 py-4 mb-6 text-center">
+<div class="flex flex-col items-center">
+<span class="text-green-600 font-bold text-xs mb-0.5">Còn hàng</span>
+<span class="text-[10px] text-outline">Tình trạng</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-green-600 font-bold text-xs mb-0.5">0 Miễn phí</span>
+<span class="text-[10px] text-outline">Vận chuyển</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-green-600 font-bold text-xs mb-0.5">30 ngày</span>
+<span class="text-[10px] text-outline">Đổi trả</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-green-600 font-bold text-xs mb-0.5">12 tháng</span>
+<span class="text-[10px] text-outline">Bảo hành</span>
+</div>
+</div>
+<!-- Product Chart -->
+<div class="mb-6">
+<h3 class="font-headline font-bold text-base text-on-surface mb-1">Biểu đồ giá</h3>
+<p class="text-xs text-outline mb-3">Lịch sử thay đổi giá trong 30 ngày qua</p>
+<div class="aspect-[4/3] bg-surface rounded-xl flex items-center justify-center p-2 relative border border-outline-variant/15">
+<!-- Decorative simple chart visualization -->
+<div class="w-full h-full relative">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2">
+<div class="border-b border-outline-variant/10 w-full"></div>
+<div class="border-b border-outline-variant/10 w-full"></div>
+<div class="border-b border-outline-variant/10 w-full"></div>
+<div class="border-b border-outline-variant/10 w-full"></div>
+<div class="border-b border-outline-variant/10 w-full"></div>
+</div>
+<!-- Axis Labels -->
+<div class="absolute left-0 top-0 bottom-6 w-10 flex flex-col justify-between text-[8px] text-outline text-right pr-1 py-1">
+<span>36.000k</span>
+<span>34.000k</span>
+<span>32.000k</span>
+<span>30.000k</span>
+<span>28.000k</span>
+</div>
+<!-- Line -->
+<svg class="absolute inset-0 w-full h-full pb-6 pl-10" preserveaspectratio="none" viewbox="0 0 100 100">
+<polyline fill="none" points="0,20 10,20 20,25 30,25 40,25 45,40 50,45 60,60 70,60 80,60 90,60 95,85 100,85" stroke="#ff5d1f" stroke-width="2"></polyline>
+<circle cx="0" cy="20" fill="#ff5d1f" r="2"></circle>
+<circle cx="10" cy="20" fill="#ff5d1f" r="2"></circle>
+<circle cx="20" cy="25" fill="#ff5d1f" r="2"></circle>
+<circle cx="30" cy="25" fill="#ff5d1f" r="2"></circle>
+<circle cx="40" cy="25" fill="#ff5d1f" r="2"></circle>
+<circle cx="45" cy="40" fill="#ff5d1f" r="2"></circle>
+<circle cx="50" cy="45" fill="#ff5d1f" r="2"></circle>
+<circle cx="60" cy="60" fill="#ff5d1f" r="2"></circle>
+<circle cx="70" cy="60" fill="#ff5d1f" r="2"></circle>
+<circle cx="80" cy="60" fill="#ff5d1f" r="2"></circle>
+<circle cx="90" cy="60" fill="#ff5d1f" r="2"></circle>
+<circle cx="95" cy="85" fill="#ff5d1f" r="2"></circle>
+<circle cx="100" cy="85" fill="#ff5d1f" r="2"></circle>
+</svg>
+<!-- Lowest Price Badge -->
+<div class="absolute right-0 bottom-8 bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[8px] font-bold">Thấp nhất: 28.990.000đ</div>
+<!-- X Axis Labels -->
+<div class="absolute left-10 right-0 bottom-0 flex justify-between text-[8px] text-outline px-2">
+<span>18/03</span>
+<span>25/03</span>
+<span>01/04</span>
+<span>08/04</span>
+<span>15/04</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Specs -->
+<div class="mb-8">
+<h3 class="font-headline font-bold text-base text-on-surface mb-3">Thông tin deal</h3>
+<ul class="space-y-2 text-sm">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">category</span>
+<span class="text-outline">Danh mục:</span>
+<span class="text-on-surface font-medium ml-1">Điện thoại</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">memory</span>
+<span class="text-outline">Dung lượng:</span>
+<span class="text-on-surface font-medium ml-1">256GB</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">palette</span>
+<span class="text-outline">Màu sắc:</span>
+<span class="text-on-surface font-medium ml-1">Titan Tự nhiên</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">verified</span>
+<span class="text-outline">Bảo hành:</span>
+<span class="text-on-surface font-medium ml-1">12 tháng chính hãng</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">storefront</span>
+<span class="text-outline">Nguồn:</span>
+<span class="text-on-surface font-medium ml-1">FPT Shop</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">update</span>
+<span class="text-outline">Cập nhật:</span>
+<span class="text-on-surface font-medium ml-1">15/04/2025 10:30</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Alert Form -->
+<div class="bg-surface p-6 border-t border-outline-variant/15">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline font-bold text-base text-on-surface">Tạo alert săn deal</h3>
+<button class="text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="space-y-4">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Từ khóa</label>
+<input class="w-full rounded-lg border-outline-variant/30 bg-surface-container-lowest text-sm placeholder:text-outline py-2 focus:ring-primary focus:border-primary" placeholder="Ví dụ: iPhone, AirPods, Nike..." type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Danh mục</label>
+<select class="w-full rounded-lg border-outline-variant/30 bg-surface-container-lowest text-sm text-on-surface py-2 focus:ring-primary focus:border-primary">
+<option>Chọn danh mục</option>
+<option>Điện thoại</option>
+<option>Laptop</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Khoảng giá</label>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<input class="w-full rounded-lg border-outline-variant/30 bg-surface-container-lowest text-sm py-2 focus:ring-primary focus:border-primary" placeholder="Từ" type="text"/>
+<span class="absolute right-3 top-2.5 text-xs text-outline">đ</span>
+</div>
+<span class="text-outline">-</span></div></div><div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Giảm giá tối thiểu</label>
+<select class="w-full rounded-lg border-outline-variant/30 bg-surface-container-lowest text-sm text-on-surface py-2 focus:ring-primary focus:border-primary">
+<option>Chọn mức giảm giá</option>
+<option>10% trở lên</option>
+<option>20% trở lên</option>
+<option>30% trở lên</option>
+<option>50% trở lên</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-semibold text-on-surface mb-1">Nhận thông báo qua</label>
+<div class="flex items-center gap-6">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded border-outline-variant/30 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm text-on-surface">Email</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded border-outline-variant/30 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm text-on-surface">Telegram</span>
+</label>
+</div>
+</div><div class="flex gap-3 pt-2">
+<button class="flex-1 bg-primary text-white py-2.5 rounded-lg text-sm font-bold hover:bg-primary-dim transition-all" type="button">Tạo alert</button>
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant/30 text-on-surface text-sm font-semibold hover:bg-surface-container-low transition-colors" type="button">Hủy</button>
+</div></form></div></aside></div></body></html>

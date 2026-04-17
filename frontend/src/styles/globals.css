@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 14px;
+  --background: 33 64% 98%;
+  --foreground: 224 24% 16%;
+  --surface: 0 0% 100%;
+  --surface-muted: 30 42% 96%;
+  --muted-foreground: 220 11% 42%;
+  --border: 24 30% 88%;
+  --ring: 24 95% 56%;
+  --brand: 25 100% 50%;
+  --brand-600: 24 100% 50%;
+  --brand-700: 18 92% 45%;
+  --brand-soft: 30 100% 95%;
+  --success: 146 63% 40%;
+  --warning: 43 97% 52%;
+  --danger: 0 83% 62%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  background: #f7f7f7;
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+::selection {
+  background: hsl(var(--brand) / 0.2);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: 0;
+    color: hsl(var(--foreground));
+  }
+
+  h1 {
+    @apply text-display-sm sm:text-display-md;
+  }
+
+  h2 {
+    @apply text-heading-lg;
+  }
+
+  h3 {
+    @apply text-heading-md;
+  }
+
+  p {
+    @apply text-body-sm text-muted-foreground;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-page px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-stack {
+    @apply space-y-7 py-7;
+  }
+
+  .section-surface {
+    @apply space-y-0;
+  }
+
+  .tool-surface {
+    @apply rounded-[14px] border border-border bg-surface p-4 shadow-[0_8px_24px_-14px_rgba(15,23,42,0.18)] sm:p-5;
+  }
+
+  .section-head {
+    @apply flex flex-wrap items-end justify-between gap-4;
+  }
+
+  .section-kicker {
+    @apply text-[10px] font-extrabold uppercase tracking-wide text-[#ff6a00];
+  }
+}
