@@ -4,9 +4,10 @@ import { APP_CONFIG } from "@/config/app";
 import { APP_ROUTES } from "@/config/routes";
 
 const navItems = [
-  { label: "Deal cua toi", href: APP_ROUTES.public.deals },
-  { label: "Thong bao", href: APP_ROUTES.public.deals },
-  { label: "Dang nhap", href: APP_ROUTES.public.deals }
+  { label: "Ưu đãi của tôi", href: APP_ROUTES.public.deals },
+  { label: "Thông báo", href: APP_ROUTES.public.deals },
+  { label: "Đăng nhập", href: APP_ROUTES.public.login },
+  { label: "Đăng ký", href: APP_ROUTES.public.register }
 ] as const;
 
 export const AppHeader = () => {
@@ -19,27 +20,32 @@ export const AppHeader = () => {
           </span>
           <span className="flex flex-col leading-none">
             <span className="text-[24px] font-bold text-[#ff6a00]">{APP_CONFIG.name}</span>
-            <span className="text-[11px] font-medium text-[#8d8d8d]">San deal moi ngay</span>
+            <span className="text-[11px] font-medium text-[#8d8d8d]">Săn ưu đãi mỗi ngày</span>
           </span>
         </Link>
 
-        <form className="hidden min-w-0 flex-1 items-center md:flex">
+        <form
+          action={APP_ROUTES.public.deals}
+          className="hidden min-w-0 flex-1 items-center md:flex"
+          method="get"
+        >
           <div className="flex h-[34px] w-[380px] items-center overflow-hidden rounded-full border border-[#ededed] bg-[#f5f5f5] shadow-[inset_0_1px_2px_rgba(0,0,0,0.04)]">
             <input
               className="h-full flex-1 bg-transparent px-3.5 text-[12px] text-[#222] outline-none placeholder:text-[#9a9a9a]"
-              placeholder="Tim kiem deal, san pham, thuong hieu..."
+              name="keyword"
+              placeholder="Tìm kiếm ưu đãi, sản phẩm, thương hiệu..."
               type="text"
             />
             <button
               className="mr-0.5 inline-flex h-[34px] w-[72px] items-center justify-center rounded-full bg-[#ff6a00] text-[12px] font-bold text-white transition-colors hover:bg-[#f26500]"
-              type="button"
+              type="submit"
             >
-              Tim kiem
+              Tìm kiếm
             </button>
           </div>
         </form>
 
-        <nav aria-label="Top Actions" className="ml-auto hidden items-center gap-6 lg:flex">
+        <nav aria-label="Điều hướng chính" className="ml-auto hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <Link
               className="inline-flex items-center text-[12px] font-medium text-[#444] transition-colors hover:text-[#ff6a00]"

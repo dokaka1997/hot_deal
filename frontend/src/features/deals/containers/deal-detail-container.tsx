@@ -35,7 +35,7 @@ export const DealDetailContainer = ({ dealId }: DealDetailContainerProps) => {
   });
 
   if (detailQuery.isPending) {
-    return <LoadingState description="Dang tai chi tiet deal..." />;
+    return <LoadingState description="Đang tải chi tiết ưu đãi..." />;
   }
 
   if (detailQuery.isError) {
@@ -50,11 +50,11 @@ export const DealDetailContainer = ({ dealId }: DealDetailContainerProps) => {
             className="inline-flex h-10 items-center rounded-sm border border-brand/25 bg-brand-soft px-3 text-sm font-semibold text-brand-700 hover:bg-brand/15"
             href={APP_ROUTES.public.deals}
           >
-            Quay lai danh sach
+            Quay lại danh sách
           </Link>
         }
-        description="Khong tim thay deal ban vua yeu cau."
-        title="Deal khong ton tai"
+        description="Không tìm thấy ưu đãi bạn vừa yêu cầu."
+        title="Ưu đãi không tồn tại"
       />
     );
   }

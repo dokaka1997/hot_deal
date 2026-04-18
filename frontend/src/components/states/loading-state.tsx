@@ -8,8 +8,8 @@ interface LoadingStateProps {
 }
 
 export const LoadingState = ({
-  title = "Loading",
-  description = "Please wait while data is being prepared.",
+  title = "Đang tải",
+  description = "Vui lòng chờ trong giây lát.",
   className
 }: LoadingStateProps) => {
   return (

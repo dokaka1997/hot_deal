@@ -15,23 +15,23 @@ const FALLBACK_DEAL_IMAGE =
 
 const formatPriceValue = (value: number, currency: string | null): string => {
   if (!Number.isFinite(value)) {
-    return "0d";
+    return "0đ";
   }
 
   if (!currency || currency.toUpperCase() === "VND") {
-    return `${Math.round(value).toLocaleString("vi-VN")}d`;
+    return `${Math.round(value).toLocaleString("vi-VN")}đ`;
   }
 
   try {
     return formatCurrency(value, currency, "vi-VN");
   } catch {
-    return `${Math.round(value).toLocaleString("vi-VN")}d`;
+    return `${Math.round(value).toLocaleString("vi-VN")}đ`;
   }
 };
 
 const toSoldCountLabel = (dealId: number): string => {
   const sold = 120 + (dealId % 37) * 23;
-  return `${sold.toLocaleString()} da ban`;
+  return `${sold.toLocaleString("vi-VN")} đã bán`;
 };
 
 const formatSeenAt = (value: Date | null): string | null => {
@@ -55,7 +55,7 @@ export const DealCard = ({ deal, compact = false }: DealCardProps) => {
       as="article"
       className="group w-full overflow-hidden rounded-[18px] border border-[#f0e3d9] bg-white p-0 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(0,0,0,0.12)]"
     >
-      <div className={compact ? "relative aspect-[4/3] overflow-hidden bg-[#f7f7f7]" : "relative aspect-[4/3] overflow-hidden bg-[#f7f7f7]"}>
+      <div className="relative aspect-[4/3] overflow-hidden bg-[#f7f7f7]">
         <img
           alt={deal.title}
           className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
@@ -69,19 +69,31 @@ export const DealCard = ({ deal, compact = false }: DealCardProps) => {
       </div>
 
       <div className="flex items-center justify-between px-3.5 pt-[12px]">
-        <p className="truncate text-[9px] font-semibold text-[#a0a0a0]">{deal.sourceName || "Nguon khac"}</p>
+        <p className="truncate text-[9px] font-semibold text-[#a0a0a0]">{deal.sourceName || "Nguồn khác"}</p>
         {seenAtLabel ? <span className="text-[9px] text-[#a0a0a0]">{seenAtLabel}</span> : null}
       </div>
 
-      <h3 className={compact ? "line-clamp-2 min-h-[38px] px-3.5 pt-2 text-[12px] font-bold leading-[1.4] text-[#252525]" : "line-clamp-2 min-h-[40px] px-3.5 pt-2 text-[13px] font-bold leading-[1.4] text-[#252525]"}>
+      <h3
+        className={
+          compact
+            ? "line-clamp-2 min-h-[38px] px-3.5 pt-2 text-[12px] font-bold leading-[1.4] text-[#252525]"
+            : "line-clamp-2 min-h-[40px] px-3.5 pt-2 text-[13px] font-bold leading-[1.4] text-[#252525]"
+        }
+      >
         {deal.title}
       </h3>
       <p className="truncate px-3.5 pt-0.5 text-[10px] text-[#8a8a8a]">
-        {[deal.brand, deal.category].filter(Boolean).join(" - ") || "Khuyen mai tong hop"}
+        {[deal.brand, deal.category].filter(Boolean).join(" - ") || "Khuyến mãi tổng hợp"}
       </p>
 
       <div className="flex items-end px-3.5 pt-[10px]">
-        <span className={compact ? "text-[32px] font-extrabold leading-none tracking-[-0.03em] text-[#ff6a00]" : "text-[36px] font-extrabold leading-none tracking-[-0.03em] text-[#ff6a00]"}>
+        <span
+          className={
+            compact
+              ? "text-[32px] font-extrabold leading-none tracking-[-0.03em] text-[#ff6a00]"
+              : "text-[36px] font-extrabold leading-none tracking-[-0.03em] text-[#ff6a00]"
+          }
+        >
           {formatPriceValue(deal.dealPrice, deal.currency)}
         </span>
         {deal.originalPrice !== null ? (
@@ -99,18 +111,18 @@ export const DealCard = ({ deal, compact = false }: DealCardProps) => {
             rel="noreferrer noopener"
             target="_blank"
           >
-            Xem deal
+            Xem ưu đãi
           </a>
         ) : (
           <span className="inline-flex h-8 flex-1 items-center justify-center rounded-[10px] border border-[#e5e5e5] bg-[#f7f7f7] text-[11px] font-semibold text-[#9a9a9a]">
-            Tam het link
+            Tạm hết link
           </span>
         )}
         <Link
           className="inline-flex h-8 w-[62px] items-center justify-center rounded-[10px] border border-[#ffb27a] bg-[#fff7f1] text-[11px] font-bold text-[#ff6a00] transition-colors hover:bg-[#ffefe4]"
           href={APP_ROUTES.public.dealDetail(deal.id)}
         >
-          Xem
+          Chi tiết
         </Link>
       </div>
 

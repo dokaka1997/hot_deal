@@ -11,6 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
+    html, body {
+        overflow-x: hidden;
+    }
     .hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -104,10 +107,11 @@
 <div class="flex justify-between items-center px-8 py-4 max-w-[1600px] mx-auto">
 <div class="flex items-center gap-10">
 <a class="text-3xl font-black italic tracking-tighter text-[#FF5200] font-headline hover:opacity-90 transition-opacity" href="#">Hot Deal</a>
-<div class="relative hidden md:flex items-center">
+<form action="/deals" class="relative hidden md:flex items-center" method="get">
 <span class="material-symbols-outlined absolute left-4 text-slate-400">search</span>
-<input class="pl-12 pr-4 py-2.5 w-96 rounded-full bg-slate-50/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-inner text-sm font-label focus:ring-2 focus:ring-[#FF5200]/20 focus:border-[#FF5200] transition-all placeholder:text-slate-400 text-slate-800 dark:text-slate-200 focus:outline-none focus:bg-white dark:focus:bg-slate-900" placeholder="Tìm kiếm deal, sản phẩm..." type="text"/>
-</div>
+<input class="pl-12 pr-4 py-2.5 w-96 rounded-full bg-slate-50/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 shadow-inner text-sm font-label focus:ring-2 focus:ring-[#FF5200]/20 focus:border-[#FF5200] transition-all placeholder:text-slate-400 text-slate-800 dark:text-slate-200 focus:outline-none focus:bg-white dark:focus:bg-slate-900" name="keyword" placeholder="Tìm kiếm ưu đãi, sản phẩm..." type="text"/>
+<button class="sr-only" type="submit">Tìm kiếm</button>
+</form>
 </div>
 <div class="flex items-center gap-6">
 <button class="text-slate-500 dark:text-slate-400 hover:text-[#FF5200] transition-colors p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
@@ -117,8 +121,9 @@
 <span class="material-symbols-outlined text-[24px]">person</span>
 </button>
 <div class="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-1"></div>
-<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#FF5200] transition-colors px-2" href="#">My Deals</a>
-<a class="px-6 py-2.5 bg-[#FF5200] text-white text-sm font-bold rounded-full shadow-[0_4px_12px_rgba(255,82,0,0.3)] hover:shadow-[0_6px_16px_rgba(255,82,0,0.4)] hover:-translate-y-0.5 transition-all" href="#">Login</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#FF5200] transition-colors px-2" href="/deals">Ưu đãi của tôi</a>
+<a class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-[#FF5200] transition-colors px-2" href="/register">Đăng ký</a>
+<a class="px-6 py-2.5 bg-[#FF5200] text-white text-sm font-bold rounded-full shadow-[0_4px_12px_rgba(255,82,0,0.3)] hover:shadow-[0_6px_16px_rgba(255,82,0,0.4)] hover:-translate-y-0.5 transition-all" href="/login">Đăng nhập</a>
 </div>
 </div>
 </nav>
@@ -126,32 +131,32 @@
 <!-- Side Navigation (Web) -->
 <aside class="hidden lg:flex flex-col p-4 space-y-2 bg-slate-50 dark:bg-slate-950 h-full w-64 border-r-0 fixed left-0 top-16 bottom-0 z-40 overflow-y-auto font-headline text-sm font-semibold">
 <div class="px-4 py-2 mb-2">
-<h3 class="text-on-surface text-lg font-bold">Categories</h3>
-<p class="text-xs text-outline font-body font-normal">Browse curated deals</p>
+<h3 class="text-on-surface text-lg font-bold">Danh mục</h3>
+<p class="text-xs text-outline font-body font-normal">Khám phá ưu đãi theo nhu cầu</p>
 </div>
 <a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-orange-600 shadow-sm rounded-lg active:scale-98" href="#">
 <span class="material-symbols-outlined text-[20px]">apps</span>
-                All
+                Tất cả
             </a>
 <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
 <span class="material-symbols-outlined text-[20px]">smartphone</span>
-                Phones
+                Điện thoại
             </a>
 <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
 <span class="material-symbols-outlined text-[20px]">laptop</span>
-                Laptops
+                Laptop
             </a>
 <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
 <span class="material-symbols-outlined text-[20px]">headphones</span>
-                Headphones
+                Tai nghe
             </a>
 <a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg hover:translate-x-1 transition-transform" href="#">
 <span class="material-symbols-outlined text-[20px]">devices</span>
-                Gadgets
+                Thiết bị
             </a>
 </aside>
 <!-- Main Content -->
-<main class="flex-1 lg:ml-64 xl:mr-96 p-6 lg:p-8 space-y-12">
+<main class="flex-1 min-w-0 overflow-x-hidden lg:ml-64 xl:mr-96 p-6 lg:p-8 space-y-12">
 <!-- Hero Section -->
 <section class="bg-gradient-to-br from-primary to-primary-container rounded-2xl p-8 lg:p-12 text-on-primary relative overflow-hidden shadow-lg">
 <div class="relative z-10 max-w-2xl">
@@ -167,66 +172,66 @@
 </section>
 <!-- Category Icons Row -->
 <section>
-<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar">
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-primary flex items-center justify-center bg-orange-50 text-primary transition-colors">
+<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar" id="category-row">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="all" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-primary flex items-center justify-center bg-orange-50 text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">grid_view</span>
 </div>
-<span class="text-sm font-semibold text-primary">Tất cả</span>
+<span class="text-sm font-semibold text-primary" data-category-label>Tất cả</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="phone" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">smartphone</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Điện thoại</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Điện thoại</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="laptop" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">laptop_mac</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Laptop</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Laptop</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="audio" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">headphones</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Tai nghe</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Tai nghe</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="watch" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">watch</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Đồng hồ</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Đồng hồ</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="fashion" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">styler</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Thời trang</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Thời trang</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="fashion" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">snowshoeing</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Giày dép</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Giày dép</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="home" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">kitchen</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Gia dụng</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Gia dụng</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="beauty" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">face_retouching_natural</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Làm đẹp</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Làm đẹp</span>
 </a>
-<a class="flex flex-col items-center gap-2 min-w-[80px] group" href="#">
-<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors">
+<a class="flex flex-col items-center gap-2 min-w-[80px] group" data-category="more" data-category-item href="#">
+<div class="w-16 h-16 rounded-full border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest text-on-surface group-hover:border-primary group-hover:text-primary transition-colors" data-category-icon>
 <span class="material-symbols-outlined text-3xl">more_horiz</span>
 </div>
-<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Xem thêm</span>
+<span class="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors" data-category-label>Xem thêm</span>
 </a>
 </div>
 </section>
@@ -239,91 +244,93 @@
             </h2>
 <p class="text-sm text-outline mt-1 font-body">Những deal được săn nhiều nhất hôm nay</p>
 </div>
-<a class="text-primary text-sm font-semibold hover:underline hidden sm:block" href="#">Xem tất cả</a>
+<a class="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-dim" href="/deals">Xem tất cả</a>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="relative w-full max-w-full overflow-hidden pb-2" id="hot-deals-viewport">
+<div class="inline-flex gap-6 will-change-transform" id="hot-deals-grid">
 <!-- Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-38%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">headphones</span>
+<div class="min-w-[248px] max-w-[248px] shrink-0 bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all" data-hot-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-38%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">headphones</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Tai nghe Bluetooth AirPods Pro 2</h3>
-<span class="text-xs text-outline flex items-center gap-1">Shopee Mall</span>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Tai nghe Bluetooth AirPods Pro 2</h3>
+<span class="text-xs text-outline flex items-center gap-1" data-role="source">Shopee Mall</span>
 <div class="mt-auto pt-2">
-<span class="font-bold text-primary text-lg">4.290.000₫</span>
-<span class="text-xs text-outline line-through ml-2">6.990.000₫</span>
+<span class="font-bold text-primary text-lg" data-role="deal-price">4.290.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">6.990.000₫</span>
 </div>
 </div>
 <div class="flex gap-2 mt-2">
-<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
-<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors" data-role="cta">Xem ưu đãi</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1" data-role="sold">
 <span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 1.2k đã săn
                 </div>
 </div>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-15%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">smartphone</span>
+<div class="min-w-[248px] max-w-[248px] shrink-0 bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all" data-hot-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-15%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">smartphone</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">iPhone 15 Pro Max 256GB</h3>
-<span class="text-xs text-outline flex items-center gap-1">FPT Shop</span>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">iPhone 15 Pro Max 256GB</h3>
+<span class="text-xs text-outline flex items-center gap-1" data-role="source">FPT Shop</span>
 <div class="mt-auto pt-2">
-<span class="font-bold text-primary text-lg">29.990.000₫</span>
-<span class="text-xs text-outline line-through ml-2">34.990.000₫</span>
+<span class="font-bold text-primary text-lg" data-role="deal-price">29.990.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">34.990.000₫</span>
 </div>
 </div>
 <div class="flex gap-2 mt-2">
-<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
-<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors" data-role="cta">Xem ưu đãi</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1" data-role="sold">
 <span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 856 đã săn
                 </div>
 </div>
 </div>
 <!-- Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-20%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">laptop_mac</span>
+<div class="min-w-[248px] max-w-[248px] shrink-0 bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all" data-hot-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-20%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">laptop_mac</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Laptop ASUS TUF Gaming A15</h3>
-<span class="text-xs text-outline flex items-center gap-1">Lazada</span>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Laptop ASUS TUF Gaming A15</h3>
+<span class="text-xs text-outline flex items-center gap-1" data-role="source">Lazada</span>
 <div class="mt-auto pt-2">
-<span class="font-bold text-primary text-lg">18.990.000₫</span>
-<span class="text-xs text-outline line-through ml-2">23.990.000₫</span>
+<span class="font-bold text-primary text-lg" data-role="deal-price">18.990.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">23.990.000₫</span>
 </div>
 </div>
 <div class="flex gap-2 mt-2">
-<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
-<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors" data-role="cta">Xem ưu đãi</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1" data-role="sold">
 <span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 642 đã săn
                 </div>
 </div>
 </div>
 <!-- Card 4 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-30%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">snowshoeing</span>
+<div class="min-w-[248px] max-w-[248px] shrink-0 bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all" data-hot-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-30%</span>
+<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">snowshoeing</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Giày Nike Air Force 1 '07</h3>
-<span class="text-xs text-outline flex items-center gap-1">Shopee</span>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Giày Nike Air Force 1 '07</h3>
+<span class="text-xs text-outline flex items-center gap-1" data-role="source">Shopee</span>
 <div class="mt-auto pt-2">
-<span class="font-bold text-primary text-lg">1.399.000₫</span>
-<span class="text-xs text-outline line-through ml-2">1.999.000₫</span>
+<span class="font-bold text-primary text-lg" data-role="deal-price">1.399.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">1.999.000₫</span>
 </div>
 </div>
 <div class="flex gap-2 mt-2">
-<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors">Xem deal</button>
-<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-lg text-sm font-semibold hover:bg-primary-dim transition-colors" data-role="cta">Xem ưu đãi</button>
+<div class="bg-surface-container-low text-on-surface py-2 px-3 rounded-lg text-xs font-semibold flex items-center gap-1" data-role="sold">
 <span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> 512 đã săn
                 </div>
+</div>
 </div>
 </div>
 </div>
@@ -336,7 +343,7 @@
 <h2 class="text-2xl font-bold font-headline flex items-center gap-2 text-on-surface">
 <span class="text-2xl text-primary">⚡</span> Flash Sale Đang Diễn Ra
                 </h2>
-<div class="flex items-center gap-1 text-sm font-bold">
+<div class="flex items-center gap-1 text-sm font-bold" id="flash-countdown">
 <span class="bg-error text-on-error rounded px-2 py-1">02</span>
 <span class="text-error">:</span>
 <span class="bg-error text-on-error rounded px-2 py-1">45</span>
@@ -348,88 +355,89 @@
 </div>
 <a class="text-primary text-sm font-semibold hover:underline" href="#">Xem tất cả</a>
 </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4" id="flash-deals-grid">
 <!-- Flash Sale Card 1 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-41%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">earbuds</span>
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/15 relative flex flex-col gap-2 shadow-sm hover:shadow-md transition-shadow" data-flash-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-41%</span>
+<div class="aspect-[16/10] bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">earbuds</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Tai nghe Sony WF-C700N</h3>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Tai nghe Sony WF-C700N</h3>
 <div class="mt-auto pt-2">
-<span class="font-bold text-error text-lg">1.390.000₫</span>
-<span class="text-xs text-outline line-through ml-2">2.390.000₫</span>
+<span class="font-bold text-error text-lg" data-role="deal-price">1.390.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">2.390.000₫</span>
 </div>
 <div class="mt-2">
 <div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
-<div class="bg-error h-full rounded-full" style="width: 68%"></div>
+<div class="bg-error h-full rounded-full" data-role="progress" style="width: 68%"></div>
 </div>
-<p class="text-xs text-error font-semibold mt-1">Đã bán 68%</p>
+<p class="text-xs text-error font-semibold mt-1" data-role="sold">Đã bán 68%</p>
 </div>
 </div>
 </div>
 <!-- Flash Sale Card 2 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-33%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">watch</span>
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/15 relative flex flex-col gap-2 shadow-sm hover:shadow-md transition-shadow" data-flash-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-33%</span>
+<div class="aspect-[16/10] bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">watch</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Đồng hồ Casio G-Shock GA-...</h3>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Đồng hồ Casio G-Shock GA-...</h3>
 <div class="mt-auto pt-2">
-<span class="font-bold text-error text-lg">1.990.000₫</span>
-<span class="text-xs text-outline line-through ml-2">2.990.000₫</span>
+<span class="font-bold text-error text-lg" data-role="deal-price">1.990.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">2.990.000₫</span>
 </div>
 <div class="mt-2">
 <div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
-<div class="bg-error h-full rounded-full" style="width: 54%"></div>
+<div class="bg-error h-full rounded-full" data-role="progress" style="width: 54%"></div>
 </div>
-<p class="text-xs text-error font-semibold mt-1">Đã bán 54%</p>
+<p class="text-xs text-error font-semibold mt-1" data-role="sold">Đã bán 54%</p>
 </div>
 </div>
 </div>
 <!-- Flash Sale Card 3 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-25%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">keyboard</span>
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/15 relative flex flex-col gap-2 shadow-sm hover:shadow-md transition-shadow" data-flash-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-25%</span>
+<div class="aspect-[16/10] bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">keyboard</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Bàn phím cơ Akko 3068B Plus</h3>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Bàn phím cơ Akko 3068B Plus</h3>
 <div class="mt-auto pt-2">
-<span class="font-bold text-error text-lg">890.000₫</span>
-<span class="text-xs text-outline line-through ml-2">1.190.000₫</span>
+<span class="font-bold text-error text-lg" data-role="deal-price">890.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">1.190.000₫</span>
 </div>
 <div class="mt-2">
 <div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
-<div class="bg-error h-full rounded-full" style="width: 42%"></div>
+<div class="bg-error h-full rounded-full" data-role="progress" style="width: 42%"></div>
 </div>
-<p class="text-xs text-error font-semibold mt-1">Đã bán 42%</p>
+<p class="text-xs text-error font-semibold mt-1" data-role="sold">Đã bán 42%</p>
 </div>
 </div>
 </div>
 <!-- Flash Sale Card 4 -->
-<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/15 relative flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow">
-<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10">-35%</span>
-<div class="aspect-square bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-4xl text-outline-variant">spa</span>
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/15 relative flex flex-col gap-2 shadow-sm hover:shadow-md transition-shadow" data-flash-card>
+<span class="absolute top-4 left-4 bg-error text-on-error text-xs font-bold px-2 py-1 rounded z-10" data-role="discount">-35%</span>
+<div class="aspect-[16/10] bg-surface-container-low rounded-lg w-full flex items-center justify-center overflow-hidden" data-role="image-box">
+<span class="material-symbols-outlined text-4xl text-outline-variant" data-role="icon">spa</span>
 </div>
 <div class="flex flex-col gap-1 flex-1">
-<h3 class="font-bold text-sm text-on-surface line-clamp-2">Kem dưỡng La Roche-Posay</h3>
+<h3 class="font-bold text-sm text-on-surface line-clamp-2" data-role="title">Kem dưỡng La Roche-Posay</h3>
 <div class="mt-auto pt-2">
-<span class="font-bold text-error text-lg">455.000₫</span>
-<span class="text-xs text-outline line-through ml-2">700.000₫</span>
+<span class="font-bold text-error text-lg" data-role="deal-price">455.000₫</span>
+<span class="text-xs text-outline line-through ml-2" data-role="original-price">700.000₫</span>
 </div>
 <div class="mt-2">
 <div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
-<div class="bg-error h-full rounded-full" style="width: 31%"></div>
+<div class="bg-error h-full rounded-full" data-role="progress" style="width: 31%"></div>
 </div>
-<p class="text-xs text-error font-semibold mt-1">Đã bán 31%</p>
-</div>
-</div>
+<p class="text-xs text-error font-semibold mt-1" data-role="sold">Đã bán 31%</p>
 </div>
 </div>
+</div>
+</div>
+<div class="mt-5 flex items-center justify-end gap-2" id="flash-pagination"></div>
 </section>
 <!-- Mã Giảm Giá Mới Nhất -->
 <section>
@@ -442,64 +450,65 @@
 </div>
 <a class="text-primary text-sm font-semibold hover:underline hidden sm:block" href="#">Xem tất cả</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4" id="coupon-grid">
 <!-- Voucher 1 -->
-<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
-<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-orange-50">
-<span class="material-symbols-outlined text-4xl text-primary">shopping_bag</span>
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm" data-coupon-card>
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-orange-50" data-role="logo-pane">
+<span class="material-symbols-outlined text-4xl text-primary" data-role="icon">shopping_bag</span>
 </div>
 <div class="flex-1 p-4 flex flex-col justify-between">
 <div>
-<h4 class="text-primary font-bold text-sm">SHOPEE10K</h4>
-<p class="text-xs text-on-surface mb-2 mt-1">Giảm 10K cho đơn từ 99K</p>
-<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+<h4 class="text-primary font-bold text-sm" data-role="code">SHOPEE10K</h4>
+<p class="text-xs text-on-surface mb-2 mt-1" data-role="condition">Giảm 10K cho đơn từ 99K</p>
+<p class="text-[10px] text-outline" data-role="expiry">HSD: 30/04/2025</p>
 </div>
-<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors" data-role="copy">Sao chép</button>
 </div>
 </div>
 <!-- Voucher 2 -->
-<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
-<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-blue-50">
-<span class="material-symbols-outlined text-4xl text-blue-600">storefront</span>
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm" data-coupon-card>
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-blue-50" data-role="logo-pane">
+<span class="material-symbols-outlined text-4xl text-blue-600" data-role="icon">storefront</span>
 </div>
 <div class="flex-1 p-4 flex flex-col justify-between">
 <div>
-<h4 class="text-blue-600 font-bold text-sm">LAZADA50K</h4>
-<p class="text-xs text-on-surface mb-2 mt-1">Giảm 50K cho đơn từ 500K</p>
-<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+<h4 class="text-blue-600 font-bold text-sm" data-role="code">LAZADA50K</h4>
+<p class="text-xs text-on-surface mb-2 mt-1" data-role="condition">Giảm 50K cho đơn từ 500K</p>
+<p class="text-[10px] text-outline" data-role="expiry">HSD: 30/04/2025</p>
 </div>
-<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors" data-role="copy">Sao chép</button>
 </div>
 </div>
 <!-- Voucher 3 -->
-<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
-<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-cyan-50">
-<span class="material-symbols-outlined text-4xl text-cyan-500">shopping_cart</span>
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm" data-coupon-card>
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-cyan-50" data-role="logo-pane">
+<span class="material-symbols-outlined text-4xl text-cyan-500" data-role="icon">shopping_cart</span>
 </div>
 <div class="flex-1 p-4 flex flex-col justify-between">
 <div>
-<h4 class="text-cyan-500 font-bold text-sm">TIKI30K</h4>
-<p class="text-xs text-on-surface mb-2 mt-1">Giảm 30K cho đơn từ 299K</p>
-<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+<h4 class="text-cyan-500 font-bold text-sm" data-role="code">TIKI30K</h4>
+<p class="text-xs text-on-surface mb-2 mt-1" data-role="condition">Giảm 30K cho đơn từ 299K</p>
+<p class="text-[10px] text-outline" data-role="expiry">HSD: 30/04/2025</p>
 </div>
-<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors" data-role="copy">Sao chép</button>
 </div>
 </div>
 <!-- Voucher 4 -->
-<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm">
-<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-green-50">
-<span class="material-symbols-outlined text-4xl text-green-600">local_shipping</span>
+<div class="flex border border-outline-variant/15 rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm" data-coupon-card>
+<div class="w-24 border-r border-dashed border-outline-variant/30 flex flex-col items-center justify-center p-2 bg-green-50" data-role="logo-pane">
+<span class="material-symbols-outlined text-4xl text-green-600" data-role="icon">local_shipping</span>
 </div>
 <div class="flex-1 p-4 flex flex-col justify-between">
 <div>
-<h4 class="text-green-600 font-bold text-sm">FREESHIP</h4>
-<p class="text-xs text-on-surface mb-2 mt-1">Freeship đơn từ 0Đ</p>
-<p class="text-[10px] text-outline">HSD: 30/04/2025</p>
+<h4 class="text-green-600 font-bold text-sm" data-role="code">FREESHIP</h4>
+<p class="text-xs text-on-surface mb-2 mt-1" data-role="condition">Freeship đơn từ 0Đ</p>
+<p class="text-[10px] text-outline" data-role="expiry">HSD: 30/04/2025</p>
 </div>
-<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors">Sao chép</button>
+<button class="mt-3 border border-primary text-primary hover:bg-orange-50 px-4 py-1.5 rounded-lg text-xs font-semibold w-max transition-colors" data-role="copy">Sao chép</button>
 </div>
 </div>
 </div>
+<div class="mt-5 flex items-center justify-end gap-2" id="coupon-pagination"></div>
 </section>
 <!-- Site Footer -->
 <footer class="mt-12 border-t border-outline-variant/15 pt-12 pb-8">
@@ -530,12 +539,12 @@
 </ul>
 </div>
 <div>
-<h4 class="font-headline font-bold text-on-surface mb-4">Top Categories</h4>
+<h4 class="font-headline font-bold text-on-surface mb-4">Danh mục nổi bật</h4>
 <ul class="space-y-3 text-sm font-body text-outline">
-<li><a class="hover:text-primary transition-colors" href="#">Phones</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Laptops</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Headphones</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Gadgets</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Điện thoại</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Laptop</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tai nghe</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Thiết bị</a></li>
 </ul>
 </div>
 <div>
@@ -557,7 +566,7 @@
 </div>
 </div>
 <div class="border-t border-outline-variant/15 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-outline font-body">
-<p>© 2025 Hot Deal. Tất cả quyền được bảo lưu.</p>
+<p>© 2026 Hot Deal. Tất cả quyền được bảo lưu.</p>
 <div class="flex gap-4">
 <a class="hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
 <a class="hover:text-primary transition-colors" href="#">Điều khoản dịch vụ</a>
@@ -573,32 +582,32 @@
 <span class="material-symbols-outlined text-[14px]">chevron_left</span>
 <a class="hover:text-primary" href="#">Trang chủ</a>
 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<a class="hover:text-primary" href="#">Điện thoại</a>
+<a class="hover:text-primary" href="#" id="sidebar-breadcrumb-category">Điện thoại</a>
 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span class="text-on-surface font-semibold truncate">iPhone 15 Pro Max 256GB</span>
+<span class="text-on-surface font-semibold truncate" id="sidebar-breadcrumb-title">iPhone 15 Pro Max 256GB</span>
 </div>
 <!-- Product Summary -->
 <div class="mb-6">
 <div class="flex justify-between items-start mb-2">
-<h2 class="font-headline text-lg font-bold text-on-surface">iPhone 15 Pro Max 256GB</h2>
+<h2 class="font-headline text-lg font-bold text-on-surface" id="sidebar-title">iPhone 15 Pro Max 256GB</h2>
 <button class="text-outline hover:text-error transition-colors">
 <span class="material-symbols-outlined">favorite_border</span>
 </button>
 </div>
 <div class="flex items-center gap-3 text-xs mb-3">
-<span class="flex items-center gap-1 text-on-surface"><span class="material-symbols-outlined text-sm text-primary">storefront</span> FPT Shop</span>
+<span class="flex items-center gap-1 text-on-surface" id="sidebar-source"><span class="material-symbols-outlined text-sm text-primary">storefront</span> FPT Shop</span>
 <span class="bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">Uy tín</span>
 <span class="flex items-center gap-1 text-outline"><span class="material-symbols-outlined text-sm text-yellow-500">star</span> 4.8 <span class="font-normal">(12.5k đánh giá)</span></span>
 </div>
 <div class="flex items-end gap-3 mb-2">
-<span class="text-2xl font-bold text-error">29.990.000đ</span>
-<span class="text-sm text-outline line-through mb-1">34.990.000đ</span>
+<span class="text-2xl font-bold text-error" id="sidebar-deal-price">29.990.000đ</span>
+<span class="text-sm text-outline line-through mb-1" id="sidebar-original-price">34.990.000đ</span>
 </div>
-<div class="inline-flex items-center gap-1 bg-orange-50 text-primary text-xs font-semibold px-2 py-1 rounded mb-4">
+<div class="inline-flex items-center gap-1 bg-orange-50 text-primary text-xs font-semibold px-2 py-1 rounded mb-4" id="sidebar-saving-chip">
 <span class="material-symbols-outlined text-[14px]">loyalty</span> Tiết kiệm: 5.000.000đ
             </div>
 <div class="flex flex-col gap-2">
-<button class="w-full bg-primary text-on-primary py-2.5 rounded-lg text-sm font-bold shadow-sm hover:shadow-md hover:bg-primary-dim transition-all flex justify-center items-center gap-2">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-lg text-sm font-bold shadow-sm hover:shadow-md hover:bg-primary-dim transition-all flex justify-center items-center gap-2" id="sidebar-cta">
                     Xem tại FPT Shop <span class="material-symbols-outlined text-sm">open_in_new</span>
 </button>
 <button class="w-full border border-outline-variant/30 text-on-surface bg-surface-container-lowest py-2.5 rounded-lg text-sm font-semibold hover:bg-surface-container-low transition-colors flex justify-center items-center gap-2">
@@ -641,7 +650,7 @@
 <div class="border-b border-outline-variant/10 w-full"></div>
 </div>
 <!-- Axis Labels -->
-<div class="absolute left-0 top-0 bottom-6 w-10 flex flex-col justify-between text-[8px] text-outline text-right pr-1 py-1">
+<div class="absolute left-0 top-0 bottom-6 w-10 flex flex-col justify-between text-[8px] text-outline text-right pr-1 py-1" id="sidebar-chart-y-axis">
 <span>36.000k</span>
 <span>34.000k</span>
 <span>32.000k</span>
@@ -649,7 +658,7 @@
 <span>28.000k</span>
 </div>
 <!-- Line -->
-<svg class="absolute inset-0 w-full h-full pb-6 pl-10" preserveaspectratio="none" viewbox="0 0 100 100">
+<svg class="absolute inset-0 w-full h-full pb-6 pl-10" preserveaspectratio="none" viewbox="0 0 100 100" id="sidebar-chart-svg">
 <polyline fill="none" points="0,20 10,20 20,25 30,25 40,25 45,40 50,45 60,60 70,60 80,60 90,60 95,85 100,85" stroke="#ff5d1f" stroke-width="2"></polyline>
 <circle cx="0" cy="20" fill="#ff5d1f" r="2"></circle>
 <circle cx="10" cy="20" fill="#ff5d1f" r="2"></circle>
@@ -666,9 +675,9 @@
 <circle cx="100" cy="85" fill="#ff5d1f" r="2"></circle>
 </svg>
 <!-- Lowest Price Badge -->
-<div class="absolute right-0 bottom-8 bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[8px] font-bold">Thấp nhất: 28.990.000đ</div>
+<div class="absolute right-0 bottom-8 bg-green-100 text-green-700 px-1.5 py-0.5 rounded text-[8px] font-bold" id="sidebar-chart-lowest">Thấp nhất: 28.990.000đ</div>
 <!-- X Axis Labels -->
-<div class="absolute left-10 right-0 bottom-0 flex justify-between text-[8px] text-outline px-2">
+<div class="absolute left-10 right-0 bottom-0 flex justify-between text-[8px] text-outline px-2" id="sidebar-chart-x-axis">
 <span>18/03</span>
 <span>25/03</span>
 <span>01/04</span>
@@ -685,32 +694,32 @@
 <li class="flex items-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-outline mt-0.5">category</span>
 <span class="text-outline">Danh mục:</span>
-<span class="text-on-surface font-medium ml-1">Điện thoại</span>
+<span class="text-on-surface font-medium ml-1" id="sidebar-spec-category">Điện thoại</span>
 </li>
 <li class="flex items-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-outline mt-0.5">memory</span>
-<span class="text-outline">Dung lượng:</span>
-<span class="text-on-surface font-medium ml-1">256GB</span>
+<span class="text-outline">Phiên bản:</span>
+<span class="text-on-surface font-medium ml-1" id="sidebar-spec-variant">256GB</span>
 </li>
 <li class="flex items-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-outline mt-0.5">palette</span>
 <span class="text-outline">Màu sắc:</span>
-<span class="text-on-surface font-medium ml-1">Titan Tự nhiên</span>
+<span class="text-on-surface font-medium ml-1" id="sidebar-spec-color">Titan Tự nhiên</span>
 </li>
 <li class="flex items-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-outline mt-0.5">verified</span>
 <span class="text-outline">Bảo hành:</span>
-<span class="text-on-surface font-medium ml-1">12 tháng chính hãng</span>
+<span class="text-on-surface font-medium ml-1" id="sidebar-spec-warranty">12 tháng chính hãng</span>
 </li>
 <li class="flex items-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-outline mt-0.5">storefront</span>
 <span class="text-outline">Nguồn:</span>
-<span class="text-on-surface font-medium ml-1">FPT Shop</span>
+<span class="text-on-surface font-medium ml-1" id="sidebar-spec-source">FPT Shop</span>
 </li>
 <li class="flex items-start gap-2">
 <span class="material-symbols-outlined text-[16px] text-outline mt-0.5">update</span>
 <span class="text-outline">Cập nhật:</span>
-<span class="text-on-surface font-medium ml-1">15/04/2025 10:30</span>
+<span class="text-on-surface font-medium ml-1" id="sidebar-spec-updated">15/04/2025 10:30</span>
 </li>
 </ul>
 </div>
@@ -768,5 +777,984 @@
 </div><div class="flex gap-3 pt-2">
 <button class="flex-1 bg-primary text-white py-2.5 rounded-lg text-sm font-bold hover:bg-primary-dim transition-all" type="button">Tạo alert</button>
 <button class="px-6 py-2.5 rounded-lg border border-outline-variant/30 text-on-surface text-sm font-semibold hover:bg-surface-container-low transition-colors" type="button">Hủy</button>
-</div></form></div></aside></div></body></html>
+</div></form></div></aside></div>
+<script>
+(() => {
+  const apiBase = `${window.location.protocol}//${window.location.hostname}:8080/api/v1`;
+  const fallbackImage = "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80";
+  const hotPageSize = 20;
+  const flashPageSize = 12;
+  const couponPageSize = 4;
 
+  const state = {
+    hot: { page: 0, totalPages: 0, items: [] },
+    flash: { page: 0, totalPages: 0, items: [] },
+    coupon: { page: 0, totalPages: 0, items: [] },
+    sidebarDeal: null,
+    selectedDealId: null,
+    selectedCategory: ""
+  };
+  const hotCarouselState = {
+    animationFrameId: null,
+    lastTick: 0,
+    position: 0,
+    loopWidth: 0,
+    initialized: false
+  };
+  const HOT_CAROUSEL_SPEED = 54;
+  const HOT_MIN_LOOP_ITEMS = 10;
+  const HOT_MAX_LOOP_ITEMS = 20;
+  const FLASH_MIN_VISIBLE_CARDS = 4;
+
+  const couponThemeBySource = {
+    SHOPEE: { paneBg: "#fff1e8", iconColor: "#ff6a00", codeColor: "#ff6a00", icon: "shopping_bag" },
+    LAZADA: { paneBg: "#eff5ff", iconColor: "#2563eb", codeColor: "#2563eb", icon: "storefront" },
+    TIKI: { paneBg: "#ecfeff", iconColor: "#0891b2", codeColor: "#0891b2", icon: "shopping_cart" },
+    FPTSHOP: { paneBg: "#eef6ff", iconColor: "#1d4ed8", codeColor: "#1d4ed8", icon: "store" },
+    CELLPHONES: { paneBg: "#fef2f2", iconColor: "#dc2626", codeColor: "#dc2626", icon: "devices" },
+    DIENMAYXANH: { paneBg: "#fffbea", iconColor: "#ca8a04", codeColor: "#ca8a04", icon: "kitchen" },
+    GUARDIAN: { paneBg: "#ecfdf3", iconColor: "#16a34a", codeColor: "#16a34a", icon: "health_and_beauty" },
+    WATCHSTORE: { paneBg: "#f3f4f6", iconColor: "#374151", codeColor: "#374151", icon: "watch" }
+  };
+  const templateFallbackImages = [
+    "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1695669206831-f65f7c9ef2f3?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80"
+  ];
+
+  const formatMoney = (value, currency) => {
+    if (value === null || value === undefined || Number.isNaN(Number(value))) {
+      return "";
+    }
+    const normalizedCurrency = (currency || "VND").toUpperCase();
+    try {
+      return new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: normalizedCurrency,
+        maximumFractionDigits: normalizedCurrency === "VND" ? 0 : 2
+      }).format(Number(value));
+    } catch (error) {
+      return `${Math.round(Number(value)).toLocaleString("vi-VN")}đ`;
+    }
+  };
+
+  const formatDateLabel = (isoValue) => {
+    if (!isoValue) {
+      return "HSD: Không giới hạn";
+    }
+    const parsed = new Date(isoValue);
+    if (Number.isNaN(parsed.getTime())) {
+      return "HSD: Không rõ";
+    }
+    return `HSD: ${parsed.toLocaleDateString("vi-VN")}`;
+  };
+
+  const formatAxisPrice = (value, currency) => {
+    if (!Number.isFinite(Number(value))) {
+      return "-";
+    }
+    if ((currency || "VND").toUpperCase() === "VND") {
+      return `${Math.round(Number(value) / 1000).toLocaleString("vi-VN")}k`;
+    }
+    return Math.round(Number(value)).toLocaleString("vi-VN");
+  };
+
+  const makeSyntheticPriceSeries = (deal) => {
+    const basePrice = Number(deal?.dealPrice || 0);
+    if (!Number.isFinite(basePrice) || basePrice <= 0) {
+      return [];
+    }
+
+    const discountPercent = Number(deal?.discountPercent || 15);
+    const originalPrice = Number(deal?.originalPrice || Math.round(basePrice * (1 + Math.max(0.1, discountPercent / 100))));
+    const seed = Number(deal?.id || 1);
+    const volatility = Math.max(0.012, Math.min(0.05, discountPercent / 900));
+    const series = [];
+
+    for (let index = 0; index < 13; index += 1) {
+      const trendFactor = 1 + ((12 - index) * (0.005 + (discountPercent / 2000)));
+      const swingFactor = 1 + (Math.sin((index + seed) * 0.85) * volatility);
+      const noiseFactor = 1 + (Math.cos((index * 1.17) + (seed * 0.31)) * volatility * 0.5);
+      const rawValue = index === 12
+        ? basePrice
+        : Math.max(basePrice * 0.9, basePrice * trendFactor * swingFactor * noiseFactor);
+      const cappedValue = Math.min(originalPrice * 1.08, rawValue);
+      series.push(Math.round(cappedValue));
+    }
+
+    return series;
+  };
+
+  const updateSidebarChart = (deal) => {
+    const svg = document.getElementById("sidebar-chart-svg");
+    const yAxis = document.getElementById("sidebar-chart-y-axis");
+    const xAxis = document.getElementById("sidebar-chart-x-axis");
+    const lowestBadge = document.getElementById("sidebar-chart-lowest");
+
+    if (!svg || !yAxis || !xAxis || !lowestBadge) {
+      return;
+    }
+
+    const series = makeSyntheticPriceSeries(deal);
+    if (!series.length) {
+      return;
+    }
+
+    const minValue = Math.min(...series);
+    const maxValue = Math.max(...series);
+    const valueRange = Math.max(maxValue - minValue, 1);
+
+    const points = series.map((value, index) => {
+      const x = (index / (series.length - 1)) * 100;
+      const y = 8 + ((maxValue - value) / valueRange) * 82;
+      return {
+        x: Number(x.toFixed(2)),
+        y: Number(y.toFixed(2)),
+        value
+      };
+    });
+
+    const polylinePoints = points.map((point) => `${point.x},${point.y}`).join(" ");
+    const circlesMarkup = points
+      .map((point) => `<circle cx="${point.x}" cy="${point.y}" fill="#ff5d1f" r="2"></circle>`)
+      .join("");
+
+    svg.innerHTML = `
+      <polyline fill="none" points="${polylinePoints}" stroke="#ff5d1f" stroke-width="2.5"></polyline>
+      ${circlesMarkup}
+    `;
+
+    const ySpans = Array.from(yAxis.querySelectorAll("span"));
+    ySpans.forEach((span, index) => {
+      const levelValue = maxValue - ((maxValue - minValue) / Math.max(ySpans.length - 1, 1)) * index;
+      span.textContent = formatAxisPrice(levelValue, deal.currency);
+    });
+
+    const now = deal?.lastSeenAt ? new Date(deal.lastSeenAt) : new Date();
+    const xSpans = Array.from(xAxis.querySelectorAll("span"));
+    const offsetDays = [-12, -9, -6, -3, 0];
+    xSpans.forEach((span, index) => {
+      const date = new Date(now);
+      date.setDate(now.getDate() + (offsetDays[index] ?? 0));
+      span.textContent = date.toLocaleDateString("vi-VN");
+    });
+
+    lowestBadge.textContent = `Thấp nhất: ${formatMoney(minValue, deal.currency)}`;
+  };
+
+  const toDealCategoryLabel = (category) => {
+    const normalized = String(category || "").toLowerCase();
+    if (normalized.includes("phone")) return "Dien thoai";
+    if (normalized.includes("laptop")) return "Laptop";
+    if (normalized.includes("audio") || normalized.includes("tai nghe")) return "Tai nghe";
+    if (normalized.includes("fashion")) return "Thoi trang";
+    if (normalized.includes("watch")) return "Dong ho";
+    if (normalized.includes("home")) return "Gia dung";
+    if (normalized.includes("beauty")) return "Lam dep";
+    if (normalized.includes("voucher")) return "Voucher";
+    return category || "Khac";
+  };
+
+  const toWarrantyLabel = (category) => {
+    const normalized = String(category || "").toLowerCase();
+    if (normalized.includes("fashion")) return "30 ngay doi tra";
+    if (normalized.includes("beauty")) return "7 ngay ho tro";
+    if (normalized.includes("voucher")) return "Theo dieu kien ma";
+    return "12 thang chinh hang";
+  };
+
+  const toColorLabel = (dealId) => {
+    const colors = ["Den", "Bac", "Xanh", "Trang", "Hong", "Titan"];
+    const index = Math.abs(Number(dealId || 0)) % colors.length;
+    return colors[index];
+  };
+
+  const updateSidebarSpecs = (deal) => {
+    const category = toDealCategoryLabel(deal?.category || deal?.product?.category);
+    const variant = deal?.title || deal?.product?.name || "Sản phẩm";
+    const sourceName = deal?.source?.name || "Nguồn khác";
+    const updated = deal?.lastSeenAt
+      ? new Date(deal.lastSeenAt).toLocaleString("vi-VN")
+      : "Mới cập nhật";
+
+    const breadcrumbCategory = document.getElementById("sidebar-breadcrumb-category");
+    const specCategory = document.getElementById("sidebar-spec-category");
+    const specVariant = document.getElementById("sidebar-spec-variant");
+    const specColor = document.getElementById("sidebar-spec-color");
+    const specWarranty = document.getElementById("sidebar-spec-warranty");
+    const specSource = document.getElementById("sidebar-spec-source");
+    const specUpdated = document.getElementById("sidebar-spec-updated");
+
+    if (breadcrumbCategory) breadcrumbCategory.textContent = category;
+    if (specCategory) specCategory.textContent = category;
+    if (specVariant) specVariant.textContent = variant.length > 42 ? `${variant.slice(0, 42)}...` : variant;
+    if (specColor) specColor.textContent = toColorLabel(deal?.id);
+    if (specWarranty) specWarranty.textContent = toWarrantyLabel(category);
+    if (specSource) specSource.textContent = sourceName;
+    if (specUpdated) specUpdated.textContent = updated;
+  };
+
+  const applySelectedCardState = () => {
+    const allCards = Array.from(document.querySelectorAll("[data-hot-card], [data-flash-card]"));
+    allCards.forEach((card) => {
+      const cardDealId = Number(card.dataset.dealId || 0);
+      const isSelected = Number.isFinite(cardDealId) && cardDealId > 0 && cardDealId === state.selectedDealId;
+      if (isSelected) {
+        card.style.borderColor = "rgba(167, 51, 0, 0.45)";
+        card.style.boxShadow = "0 0 0 2px rgba(167, 51, 0, 0.14), 0 12px 24px rgba(0,0,0,0.08)";
+        card.style.transform = "translateY(-2px)";
+      } else {
+        card.style.borderColor = "";
+        card.style.boxShadow = "";
+        card.style.transform = "";
+      }
+    });
+  };
+
+  const normalizeCategoryValue = (rawCategory) => {
+    const normalized = String(rawCategory || "").trim().toLowerCase();
+    if (!normalized || normalized === "all") {
+      return "";
+    }
+    return normalized;
+  };
+
+  const applyCategoryVisualState = () => {
+    const categoryItems = Array.from(document.querySelectorAll("[data-category-item]"));
+    categoryItems.forEach((item) => {
+      const icon = item.querySelector("[data-category-icon]");
+      const label = item.querySelector("[data-category-label]");
+      if (!icon || !label) return;
+
+      const itemCategory = normalizeCategoryValue(item.dataset.category);
+      const isActive = itemCategory === state.selectedCategory;
+
+      if (isActive) {
+        icon.classList.remove("border-outline-variant/30", "bg-surface-container-lowest", "text-on-surface");
+        icon.classList.add("border-primary", "bg-orange-50", "text-primary");
+        label.classList.remove("text-on-surface");
+        label.classList.add("text-primary");
+      } else {
+        icon.classList.remove("border-primary", "bg-orange-50", "text-primary");
+        icon.classList.add("border-outline-variant/30", "bg-surface-container-lowest", "text-on-surface");
+        label.classList.remove("text-primary");
+        label.classList.add("text-on-surface");
+      }
+    });
+  };
+
+  const setCategoryFilter = (nextCategory) => {
+    const normalized = normalizeCategoryValue(nextCategory);
+    if (state.selectedCategory === normalized) {
+      return;
+    }
+    state.selectedCategory = normalized;
+    applyCategoryVisualState();
+    loadHotDeals(0);
+    loadFlashDeals(0);
+  };
+
+  const initCategoryFilter = () => {
+    const row = document.getElementById("category-row");
+    if (!row) return;
+
+    const categoryItems = Array.from(row.querySelectorAll("[data-category-item]"));
+    categoryItems.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        const rawCategory = item.dataset.category;
+        setCategoryFilter(rawCategory === "more" ? "all" : rawCategory);
+      });
+    });
+
+    applyCategoryVisualState();
+  };
+
+  const buildDealsUrl = ({
+    page,
+    size,
+    sortBy,
+    direction = "DESC",
+    activeOnly = true,
+    hasCoupon,
+    category
+  }) => {
+    const searchParams = new URLSearchParams();
+    searchParams.set("page", String(page));
+    searchParams.set("size", String(size));
+    searchParams.set("sortBy", sortBy);
+    searchParams.set("direction", direction);
+    searchParams.set("activeOnly", String(activeOnly));
+    if (typeof category === "string" && category.trim()) {
+      searchParams.set("category", category.trim().toLowerCase());
+    }
+    if (typeof hasCoupon === "boolean") {
+      searchParams.set("hasCoupon", String(hasCoupon));
+    }
+    return `${apiBase}/deals?${searchParams.toString()}`;
+  };
+
+  const toDealDetailHref = (dealId) => {
+    const normalizedDealId = Number(dealId || 0);
+    if (!Number.isFinite(normalizedDealId) || normalizedDealId <= 0) {
+      return "/deals";
+    }
+    return `/deals/${normalizedDealId}`;
+  };
+
+  const fetchEnvelope = async (url) => {
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const payload = await response.json();
+    return payload && payload.success ? payload.data : null;
+  };
+
+  const createPagerButton = ({ label, active = false, disabled = false, onClick }) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = label;
+    button.className = "inline-flex h-8 min-w-8 items-center justify-center rounded-lg border px-3 text-xs font-semibold transition-colors";
+
+    if (active) {
+      button.classList.add("border-primary", "bg-primary", "text-white");
+    } else if (disabled) {
+      button.classList.add("border-outline-variant/30", "bg-surface-container-low", "text-outline", "cursor-not-allowed");
+    } else {
+      button.classList.add("border-outline-variant/30", "bg-surface-container-lowest", "text-on-surface", "hover:border-primary", "hover:text-primary");
+    }
+
+    if (disabled) {
+      button.disabled = true;
+    } else if (typeof onClick === "function") {
+      button.addEventListener("click", onClick);
+    }
+
+    return button;
+  };
+
+  const renderPagination = ({ rootId, currentPage, totalPages, onPageChange }) => {
+    const root = document.getElementById(rootId);
+    if (!root) return;
+    root.innerHTML = "";
+
+    if (totalPages <= 1) {
+      root.classList.add("hidden");
+      return;
+    }
+
+    root.classList.remove("hidden");
+    root.appendChild(
+      createPagerButton({
+        label: "Trước",
+        disabled: currentPage <= 0,
+        onClick: () => onPageChange(currentPage - 1)
+      })
+    );
+
+    for (let page = 0; page < totalPages; page += 1) {
+      root.appendChild(
+        createPagerButton({
+          label: String(page + 1),
+          active: currentPage === page,
+          onClick: () => onPageChange(page)
+        })
+      );
+    }
+
+    root.appendChild(
+      createPagerButton({
+        label: "Tiếp",
+        disabled: currentPage >= totalPages - 1,
+        onClick: () => onPageChange(currentPage + 1)
+      })
+    );
+
+    const summary = document.createElement("span");
+    summary.className = "ml-2 text-xs text-outline";
+    summary.textContent = `Trang ${currentPage + 1}/${totalPages}`;
+    root.appendChild(summary);
+  };
+
+  const setCardImage = (card, deal) => {
+    const imageContainer = card.querySelector("[data-role='image-box']") || card.querySelector(".aspect-square");
+    if (!imageContainer) return;
+
+    const imageUrl = deal.imageUrl || fallbackImage;
+    imageContainer.innerHTML = `<img src="${imageUrl}" alt="${deal.title.replace(/"/g, "&quot;")}" class="h-full w-full object-cover" />`;
+  };
+
+  const applyTemplateFallbackImages = () => {
+    const imageBoxes = Array.from(
+      document.querySelectorAll("[data-hot-card] [data-role='image-box'], [data-flash-card] [data-role='image-box']")
+    );
+
+    imageBoxes.forEach((box, index) => {
+      if (box.querySelector("img")) {
+        return;
+      }
+
+      const card = box.closest("[data-hot-card], [data-flash-card]");
+      const titleNode = card?.querySelector("[data-role='title']");
+      const rawTitle = titleNode?.textContent?.trim() || "Sản phẩm";
+      const safeTitle = rawTitle.replace(/"/g, "&quot;");
+      const imageUrl = templateFallbackImages[index % templateFallbackImages.length];
+      box.innerHTML = `<img src="${imageUrl}" alt="${safeTitle}" class="h-full w-full object-cover" />`;
+    });
+  };
+
+  const bindDealClickToSidebar = (card, deal) => {
+    const selectDeal = () => {
+      renderSidebar(deal);
+    };
+
+    const clickableNodes = [
+      card,
+      card.querySelector("[data-role='image-box']") || card.querySelector(".aspect-square"),
+      card.querySelector("[data-role='title']"),
+      card.querySelector("[data-role='deal-price']"),
+      card.querySelector("[data-role='original-price']"),
+      card.querySelector("[data-role='source']")
+    ].filter(Boolean);
+
+    clickableNodes.forEach((node) => {
+      const isCardRoot = node === card;
+      node.classList.add("cursor-pointer");
+      node.onclick = (event) => {
+        if (event.target.closest("[data-role='cta']") || event.target.closest("[data-role='detail']")) {
+          return;
+        }
+        if (!isCardRoot) {
+          event.stopPropagation();
+        }
+        selectDeal();
+      };
+    });
+  };
+
+  const ensureHotCardPool = (requiredCount) => {
+    const grid = document.getElementById("hot-deals-grid");
+    if (!grid) return [];
+
+    const cards = Array.from(grid.querySelectorAll("[data-hot-card]"));
+    if (!cards.length) return [];
+
+    const template = cards[0];
+    while (cards.length < requiredCount) {
+      const clone = template.cloneNode(true);
+      clone.removeAttribute("data-deal-id");
+      grid.appendChild(clone);
+      cards.push(clone);
+    }
+
+    return cards;
+  };
+
+  const ensureFlashCardPool = (requiredCount) => {
+    const grid = document.getElementById("flash-deals-grid");
+    if (!grid) return [];
+
+    const cards = Array.from(grid.querySelectorAll("[data-flash-card]"));
+    if (!cards.length) return [];
+
+    const template = cards[0];
+    while (cards.length < requiredCount) {
+      const clone = template.cloneNode(true);
+      clone.removeAttribute("data-deal-id");
+      grid.appendChild(clone);
+      cards.push(clone);
+    }
+
+    return cards;
+  };
+
+  const getHotDealsGrid = () => document.getElementById("hot-deals-grid");
+
+  const bindHotDealsLoop = () => {
+    if (hotCarouselState.initialized) return;
+    hotCarouselState.initialized = true;
+    window.addEventListener("resize", startHotDealsLoop);
+  };
+
+  const startHotDealsLoop = () => {
+    if (hotCarouselState.animationFrameId) {
+      cancelAnimationFrame(hotCarouselState.animationFrameId);
+      hotCarouselState.animationFrameId = null;
+    }
+
+    const grid = getHotDealsGrid();
+    if (!grid) return;
+
+    const visibleCards = Array.from(grid.querySelectorAll("[data-hot-card]:not(.hidden)"));
+    const baseCount = Math.floor(visibleCards.length / 2);
+    if (baseCount <= 0) {
+      grid.style.transform = "translate3d(0,0,0)";
+      return;
+    }
+
+    const firstBaseCard = visibleCards[0];
+    const firstRepeatCard = visibleCards[baseCount];
+    if (!firstBaseCard || !firstRepeatCard) {
+      grid.style.transform = "translate3d(0,0,0)";
+      return;
+    }
+
+    hotCarouselState.loopWidth = Math.max(0, firstRepeatCard.offsetLeft - firstBaseCard.offsetLeft);
+    if (hotCarouselState.loopWidth <= 0) {
+      grid.style.transform = "translate3d(0,0,0)";
+      return;
+    }
+
+    hotCarouselState.position = 0;
+    hotCarouselState.lastTick = performance.now();
+    grid.style.transform = "translate3d(0,0,0)";
+
+    const tick = (now) => {
+      const activeGrid = getHotDealsGrid();
+      if (!activeGrid) return;
+
+      const elapsed = Math.max(0, now - hotCarouselState.lastTick);
+      hotCarouselState.lastTick = now;
+
+      hotCarouselState.position += (HOT_CAROUSEL_SPEED * elapsed) / 1000;
+      if (hotCarouselState.position >= hotCarouselState.loopWidth) {
+        hotCarouselState.position -= hotCarouselState.loopWidth;
+      }
+
+      activeGrid.style.transform = `translate3d(${-hotCarouselState.position}px,0,0)`;
+      hotCarouselState.animationFrameId = window.requestAnimationFrame(tick);
+    };
+
+    hotCarouselState.animationFrameId = window.requestAnimationFrame(tick);
+  };
+
+  const renderHotDeals = (deals = []) => {
+    const sourceDeals = Array.isArray(deals) ? deals.filter(Boolean) : [];
+    if (!sourceDeals.length) {
+      const existingCards = ensureHotCardPool(4);
+      existingCards.forEach((card, index) => {
+        card.classList.toggle("hidden", index >= 4);
+      });
+      bindHotDealsLoop();
+      startHotDealsLoop();
+      return;
+    }
+
+    const limitedDeals = sourceDeals.slice(0, HOT_MAX_LOOP_ITEMS);
+    const baseCount = Math.max(HOT_MIN_LOOP_ITEMS, Math.min(HOT_MAX_LOOP_ITEMS, limitedDeals.length));
+    const normalizedDeals = Array.from({ length: baseCount }, (_, index) => limitedDeals[index % limitedDeals.length]);
+    const loopDeals = normalizedDeals.length > 1 ? normalizedDeals.concat(normalizedDeals) : normalizedDeals;
+    const visibleCount = loopDeals.length;
+    const cards = ensureHotCardPool(visibleCount);
+    if (!cards.length) return;
+
+    cards.forEach((card, index) => {
+      if (index >= visibleCount) {
+        card.classList.add("hidden");
+        return;
+      }
+
+      const deal = loopDeals[index];
+      card.classList.remove("hidden");
+
+      setCardImage(card, deal);
+      card.dataset.dealId = String(Number(deal.id || 0));
+      bindDealClickToSidebar(card, deal);
+
+      const discount = card.querySelector("[data-role='discount']");
+      const title = card.querySelector("[data-role='title']");
+      const source = card.querySelector("[data-role='source']");
+      const dealPrice = card.querySelector("[data-role='deal-price']");
+      const originalPrice = card.querySelector("[data-role='original-price']");
+      const sold = card.querySelector("[data-role='sold']");
+      const cta = card.querySelector("[data-role='cta']");
+      let detail = card.querySelector("[data-role='detail']");
+
+      const soldCount = Math.max(120, Math.round((deal.dealScore || 60) * 11 + (state.hot.page + 1) * 91 + (index + 1) * 37));
+
+      if (discount) discount.textContent = `-${Math.max(1, Math.round(Number(deal.discountPercent || 1)))}%`;
+      if (title) title.textContent = deal.title;
+      if (source) source.textContent = deal.source?.name || "Nguồn khác";
+      if (dealPrice) dealPrice.textContent = formatMoney(deal.dealPrice, deal.currency);
+
+      if (originalPrice) {
+        if (deal.originalPrice && deal.originalPrice > deal.dealPrice) {
+          originalPrice.textContent = formatMoney(deal.originalPrice, deal.currency);
+          originalPrice.style.display = "";
+        } else {
+          originalPrice.style.display = "none";
+        }
+      }
+
+      if (sold) {
+        sold.innerHTML = `<span class="material-symbols-outlined text-sm text-primary">local_fire_department</span> ${soldCount.toLocaleString("vi-VN")} đã săn`;
+      }
+
+      if (!detail && sold && sold.parentElement) {
+        detail = document.createElement("button");
+        detail.type = "button";
+        detail.setAttribute("data-role", "detail");
+        detail.className = "inline-flex items-center justify-center rounded-lg border border-outline-variant/30 bg-surface-container-lowest px-3 py-2 text-xs font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors";
+        detail.textContent = "Chi tiết";
+        sold.parentElement.insertBefore(detail, sold);
+      }
+
+      if (cta) {
+        cta.textContent = "Xem ưu đãi";
+        cta.onclick = (event) => {
+          event.stopPropagation();
+          if (deal.externalUrl) {
+            window.open(deal.externalUrl, "_blank", "noopener,noreferrer");
+          }
+        };
+      }
+
+      if (detail) {
+        detail.onclick = (event) => {
+          event.stopPropagation();
+          window.location.assign(toDealDetailHref(deal.id));
+        };
+      }
+    });
+
+    bindHotDealsLoop();
+    startHotDealsLoop();
+  };
+
+  const renderFlashDeals = (deals = []) => {
+    const sourceDeals = Array.isArray(deals) ? deals.filter(Boolean) : [];
+    if (!sourceDeals.length) {
+      const existingCards = ensureFlashCardPool(FLASH_MIN_VISIBLE_CARDS);
+      existingCards.forEach((card, index) => {
+        card.classList.toggle("hidden", index >= FLASH_MIN_VISIBLE_CARDS);
+      });
+      applyTemplateFallbackImages();
+      return;
+    }
+
+    const visibleCount = sourceDeals.length;
+    const cards = ensureFlashCardPool(visibleCount);
+    cards.forEach((card, index) => {
+      if (index >= visibleCount) {
+        card.classList.add("hidden");
+        return;
+      }
+
+      const deal = sourceDeals[index];
+      card.classList.remove("hidden");
+
+      setCardImage(card, deal);
+      card.dataset.dealId = String(Number(deal.id || 0));
+      bindDealClickToSidebar(card, deal);
+
+      const discount = card.querySelector("[data-role='discount']");
+      const title = card.querySelector("[data-role='title']");
+      const dealPrice = card.querySelector("[data-role='deal-price']");
+      const originalPrice = card.querySelector("[data-role='original-price']");
+      const sold = card.querySelector("[data-role='sold']");
+      const progress = card.querySelector("[data-role='progress']");
+      let actions = card.querySelector("[data-role='actions']");
+
+      const soldPercent = Math.min(93, Math.max(12, Math.round(Number(deal.discountPercent || 20) + (index * 5))));
+
+      if (discount) discount.textContent = `-${Math.max(1, Math.round(Number(deal.discountPercent || 1)))}%`;
+      if (title) title.textContent = deal.title;
+      if (dealPrice) dealPrice.textContent = formatMoney(deal.dealPrice, deal.currency);
+
+      if (originalPrice) {
+        if (deal.originalPrice && deal.originalPrice > deal.dealPrice) {
+          originalPrice.textContent = formatMoney(deal.originalPrice, deal.currency);
+          originalPrice.style.display = "";
+        } else {
+          originalPrice.style.display = "none";
+        }
+      }
+
+      if (progress) progress.style.width = `${soldPercent}%`;
+      if (sold) sold.textContent = `Đã bán ${soldPercent}%`;
+
+      if (!actions) {
+        actions = document.createElement("div");
+        actions.setAttribute("data-role", "actions");
+        actions.className = "mt-2 flex gap-2";
+        actions.innerHTML = `
+          <button type="button" data-role="cta" class="flex-1 bg-primary text-on-primary py-1.5 rounded-lg text-xs font-semibold hover:bg-primary-dim transition-colors">Xem ưu đãi</button>
+          <button type="button" data-role="detail" class="inline-flex items-center justify-center rounded-lg border border-outline-variant/30 bg-surface-container-lowest px-3 py-1.5 text-xs font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors">Chi tiết</button>
+        `;
+        card.appendChild(actions);
+      } else {
+        actions.className = "mt-2 flex gap-2";
+      }
+
+      const cta = actions.querySelector("[data-role='cta']");
+      const detail = actions.querySelector("[data-role='detail']");
+
+      if (cta) {
+        cta.className = "flex-1 bg-primary text-on-primary py-1.5 rounded-lg text-xs font-semibold hover:bg-primary-dim transition-colors";
+      }
+      if (detail) {
+        detail.className = "inline-flex items-center justify-center rounded-lg border border-outline-variant/30 bg-surface-container-lowest px-3 py-1.5 text-xs font-semibold text-on-surface hover:border-primary hover:text-primary transition-colors";
+      }
+
+      if (cta) {
+        cta.onclick = (event) => {
+          event.stopPropagation();
+          if (deal.externalUrl) {
+            window.open(deal.externalUrl, "_blank", "noopener,noreferrer");
+          }
+        };
+      }
+
+      if (detail) {
+        detail.onclick = (event) => {
+          event.stopPropagation();
+          window.location.assign(toDealDetailHref(deal.id));
+        };
+      }
+    });
+  };
+
+  const renderCoupons = (deals = []) => {
+    const cards = Array.from(document.querySelectorAll("[data-coupon-card]"));
+
+    cards.forEach((card, index) => {
+      const deal = deals[index];
+
+      if (!deal) {
+        card.classList.add("hidden");
+        return;
+      }
+
+      card.classList.remove("hidden");
+
+      const pane = card.querySelector("[data-role='logo-pane']");
+      const icon = card.querySelector("[data-role='icon']");
+      const code = card.querySelector("[data-role='code']");
+      const condition = card.querySelector("[data-role='condition']");
+      const expiry = card.querySelector("[data-role='expiry']");
+      const copyButton = card.querySelector("[data-role='copy']");
+
+      const sourceCode = (deal.source?.code || "").toUpperCase();
+      const sourceTheme = couponThemeBySource[sourceCode] || { paneBg: "#fff7f1", iconColor: "#ff6a00", codeColor: "#ff6a00", icon: "local_activity" };
+      const couponCode = deal.couponCode || (deal.title || "HOTDEAL").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 12);
+
+      if (pane) {
+        pane.style.backgroundColor = sourceTheme.paneBg;
+      }
+
+      if (icon) {
+        icon.textContent = sourceTheme.icon;
+        icon.style.color = sourceTheme.iconColor;
+      }
+
+      if (code) {
+        code.textContent = couponCode;
+        code.style.color = sourceTheme.codeColor;
+      }
+
+      if (condition) {
+        condition.textContent = deal.description || deal.title || "Ưu đãi giảm giá dành cho đơn hàng hợp lệ.";
+      }
+
+      if (expiry) {
+        expiry.textContent = formatDateLabel(deal.validUntil);
+      }
+
+      if (copyButton) {
+        copyButton.onclick = async () => {
+          const originLabel = copyButton.textContent;
+          try {
+            await navigator.clipboard.writeText(couponCode);
+            copyButton.textContent = "Đã chép";
+          } catch (error) {
+            copyButton.textContent = "Không chép được";
+          } finally {
+            setTimeout(() => {
+              copyButton.textContent = originLabel;
+            }, 1200);
+          }
+        };
+      }
+    });
+  };
+
+  const renderSidebar = (deal) => {
+    if (!deal) return;
+    state.sidebarDeal = deal;
+    state.selectedDealId = Number(deal.id || 0) || null;
+    const breadcrumbTitle = document.getElementById("sidebar-breadcrumb-title");
+    const title = document.getElementById("sidebar-title");
+    const source = document.getElementById("sidebar-source");
+    const dealPrice = document.getElementById("sidebar-deal-price");
+    const originalPrice = document.getElementById("sidebar-original-price");
+    const savingChip = document.getElementById("sidebar-saving-chip");
+    const cta = document.getElementById("sidebar-cta");
+
+    if (breadcrumbTitle) breadcrumbTitle.textContent = deal.title;
+    if (title) title.textContent = deal.title;
+
+    if (source) {
+      source.innerHTML = `<span class="material-symbols-outlined text-sm text-primary">storefront</span> ${deal.source?.name || "Nguồn khác"}`;
+    }
+
+    if (dealPrice) dealPrice.textContent = formatMoney(deal.dealPrice, deal.currency);
+
+    if (originalPrice) {
+      if (deal.originalPrice && deal.originalPrice > deal.dealPrice) {
+        originalPrice.textContent = formatMoney(deal.originalPrice, deal.currency);
+        originalPrice.style.display = "";
+      } else {
+        originalPrice.style.display = "none";
+      }
+    }
+
+    if (savingChip) {
+      const saveAmount = deal.originalPrice && deal.originalPrice > deal.dealPrice
+        ? deal.originalPrice - deal.dealPrice
+        : 0;
+      savingChip.innerHTML = `<span class="material-symbols-outlined text-[14px]">loyalty</span> Tiết kiệm: ${formatMoney(saveAmount, deal.currency)}`;
+    }
+
+    if (cta && deal.externalUrl) {
+      cta.onclick = () => window.open(deal.externalUrl, "_blank", "noopener,noreferrer");
+      cta.innerHTML = `Xem tại ${deal.source?.name || "Nguồn"} <span class="material-symbols-outlined text-sm">open_in_new</span>`;
+    }
+
+    updateSidebarChart(deal);
+    updateSidebarSpecs(deal);
+    applySelectedCardState();
+  };
+
+  const startFlashCountdown = () => {
+    const root = document.getElementById("flash-countdown");
+    if (!root) return;
+
+    const boxes = root.querySelectorAll("span.bg-error");
+    if (boxes.length < 3) return;
+
+    const targetTime = Date.now() + (3 * 60 * 60 + 17 * 60 + 35) * 1000;
+
+    const update = () => {
+      const remaining = Math.max(0, targetTime - Date.now());
+      const totalSeconds = Math.floor(remaining / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      boxes[0].textContent = String(hours).padStart(2, "0");
+      boxes[1].textContent = String(minutes).padStart(2, "0");
+      boxes[2].textContent = String(seconds).padStart(2, "0");
+    };
+
+    update();
+    setInterval(update, 1000);
+  };
+
+  const loadHotDeals = async (page = 0) => {
+    try {
+      const data = await fetchEnvelope(
+        buildDealsUrl({
+          page,
+          size: hotPageSize,
+          sortBy: "dealScore",
+          direction: "DESC",
+          activeOnly: true
+        })
+      );
+
+      const items = data?.items || [];
+      state.hot.page = data?.page || 0;
+      state.hot.totalPages = data?.totalPages || 0;
+      state.hot.items = items;
+
+      renderHotDeals(items);
+
+      if (items.length) {
+        renderSidebar(items[0]);
+      } else if (state.sidebarDeal) {
+        renderSidebar(state.sidebarDeal);
+      }
+    } catch (error) {
+      console.warn("Không thể tải deal hot:", error);
+      applyTemplateFallbackImages();
+      renderHotDeals([]);
+    }
+  };
+
+  const loadFlashDeals = async (page = 0) => {
+    try {
+      const data = await fetchEnvelope(
+        buildDealsUrl({
+          page,
+          size: flashPageSize,
+          sortBy: "discountPercent",
+          direction: "DESC",
+          activeOnly: true,
+          category: state.selectedCategory
+        })
+      );
+
+      const items = data?.items || [];
+      state.flash.page = data?.page || 0;
+      state.flash.totalPages = data?.totalPages || 0;
+      state.flash.items = items;
+
+      renderFlashDeals(items);
+      renderPagination({
+        rootId: "flash-pagination",
+        currentPage: state.flash.page,
+        totalPages: state.flash.totalPages,
+        onPageChange: (nextPage) => loadFlashDeals(nextPage)
+      });
+    } catch (error) {
+      console.warn("Không thể tải flash sale:", error);
+      applyTemplateFallbackImages();
+      renderFlashDeals([]);
+    }
+  };
+
+  const loadCouponDeals = async (page = 0) => {
+    try {
+      const data = await fetchEnvelope(
+        buildDealsUrl({
+          page,
+          size: couponPageSize,
+          sortBy: "lastSeenAt",
+          direction: "DESC",
+          activeOnly: true,
+          hasCoupon: true
+        })
+      );
+
+      const items = data?.items || [];
+      state.coupon.page = data?.page || 0;
+      state.coupon.totalPages = data?.totalPages || 0;
+      state.coupon.items = items;
+
+      renderCoupons(items);
+      renderPagination({
+        rootId: "coupon-pagination",
+        currentPage: state.coupon.page,
+        totalPages: state.coupon.totalPages,
+        onPageChange: (nextPage) => loadCouponDeals(nextPage)
+      });
+    } catch (error) {
+      console.warn("Không thể tải coupon:", error);
+    }
+  };
+
+  applyTemplateFallbackImages();
+  renderHotDeals([]);
+  renderFlashDeals([]);
+  startFlashCountdown();
+  initCategoryFilter();
+  loadHotDeals(0);
+  loadFlashDeals(0);
+  loadCouponDeals(0);
+})();
+</script>
+</body></html>

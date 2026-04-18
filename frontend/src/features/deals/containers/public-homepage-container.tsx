@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { EmptyState } from "@/components/states";
+import { EmptyState, ErrorState, LoadingState } from "@/components/states";
 import { APP_ROUTES } from "@/config/routes";
 import { usePublicAnalyticsSummary } from "@/features/analytics/hooks";
 import {
@@ -15,7 +15,6 @@ import { toDealCardFromHottestDeal, toDealCardFromListItem } from "@/features/de
 import { buildDealsListingHref, DEFAULT_DEALS_PAGE_SIZE, DEFAULT_DEALS_SORT, DEFAULT_DEALS_DIRECTION } from "@/features/deals/utils";
 import { usePublicDeals } from "@/features/deals/hooks";
 import { CategoryIconRow, CouponSection, FlashSaleCountdown } from "@/features/home/components";
-import { MOCK_FEATURED_DEALS, MOCK_LATEST_DEALS } from "@/features/home/mocks/homepage-mock-data";
 import type { DealSearchRequest } from "@/types/requests";
 
 const FEATURED_LIMIT = 6;
@@ -42,14 +41,8 @@ export const PublicHomepageContainer = () => {
   const featuredQuery = usePublicAnalyticsSummary(featuredRequest);
   const latestQuery = usePublicDeals(latestRequest);
 
-  const featuredDealsFromApi = featuredQuery.data?.hottestDeals.map(toDealCardFromHottestDeal) ?? [];
-  const latestDealsFromApi = latestQuery.data?.items.map(toDealCardFromListItem) ?? [];
-
-  const shouldUseFeaturedMock = !featuredDealsFromApi.length && (featuredQuery.isError || !featuredQuery.data);
-  const shouldUseLatestMock = !latestDealsFromApi.length && (latestQuery.isError || !latestQuery.data);
-
-  const featuredDeals = shouldUseFeaturedMock ? MOCK_FEATURED_DEALS : featuredDealsFromApi;
-  const latestDeals = shouldUseLatestMock ? MOCK_LATEST_DEALS : latestDealsFromApi;
+  const featuredDeals = featuredQuery.data?.hottestDeals.map(toDealCardFromHottestDeal) ?? [];
+  const latestDeals = latestQuery.data?.items.map(toDealCardFromListItem) ?? [];
 
   const categoryItems = [
     { key: "all", label: "Tat ca", icon: "all", href: buildDealsListingHref({ activeOnly: true }), active: true },
@@ -97,18 +90,17 @@ export const PublicHomepageContainer = () => {
             </Link>
           }
         >
+          {featuredQuery.isPending ? <LoadingState description="Dang tai danh sach deal noi bat..." /> : null}
           {featuredQuery.isError ? (
-            <p className="mb-3 rounded-[10px] border border-[#ffd6bf] bg-[#fff4ec] px-3 py-2 text-[11px] font-semibold text-[#cf4d02]">
-              API tam thoi chua san sang, dang hien thi du lieu mau.
-            </p>
+            <ErrorState error={featuredQuery.error} onRetry={() => featuredQuery.refetch()} />
           ) : null}
-          {!featuredDeals.length ? (
+          {!featuredQuery.isPending && !featuredQuery.isError && !featuredDeals.length ? (
             <EmptyState
               description="Tam thoi chua co deal noi bat phu hop."
               title="Chua co deal noi bat"
             />
           ) : null}
-          {featuredDeals.length ? (
+          {!featuredQuery.isPending && !featuredQuery.isError && featuredDeals.length ? (
             <DealGrid deals={featuredDeals} />
           ) : null}
         </DealsSection>
@@ -131,15 +123,14 @@ export const PublicHomepageContainer = () => {
             </div>
           }
         >
+          {latestQuery.isPending ? <LoadingState description="Dang tai cac deal moi..." /> : null}
           {latestQuery.isError ? (
-            <p className="mb-3 rounded-[10px] border border-[#ffd6bf] bg-[#fff4ec] px-3 py-2 text-[11px] font-semibold text-[#cf4d02]">
-              Flash sale dang dung du lieu mau do backend chua ket noi.
-            </p>
+            <ErrorState error={latestQuery.error} onRetry={() => latestQuery.refetch()} />
           ) : null}
-          {!latestDeals.length ? (
+          {!latestQuery.isPending && !latestQuery.isError && !latestDeals.length ? (
             <EmptyState description="Chua co deal moi trong luc nay." title="Chua co deal moi" />
           ) : null}
-          {latestDeals.length ? (
+          {!latestQuery.isPending && !latestQuery.isError && latestDeals.length ? (
             <DealGrid compact deals={latestDeals} />
           ) : null}
         </DealsSection>

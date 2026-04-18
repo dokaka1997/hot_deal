@@ -13,8 +13,8 @@ interface ErrorStateProps {
 
 export const ErrorState = ({
   error,
-  title = "Unable to load data",
-  retryLabel = "Thu lai",
+  title = "Không thể tải dữ liệu",
+  retryLabel = "Thử lại",
   onRetry,
   className
 }: ErrorStateProps) => {

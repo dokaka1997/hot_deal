@@ -87,14 +87,14 @@ export const DealPriceHistoryChart = ({ points, currency }: DealPriceHistoryChar
             }}
             formatter={(value, key) => [
               formatPriceValue(toSafeNumber(value), currency),
-              String(key) === "dealPrice" ? "Gia deal" : "Gia goc"
+              String(key) === "dealPrice" ? "Giá ưu đãi" : "Giá gốc"
             ]}
             labelFormatter={(value) => tooltipDateFormatter.format(new Date(toSafeNumber(value)))}
           />
           <Line
             dataKey="dealPrice"
             dot={false}
-            name="Gia deal"
+            name="Giá ưu đãi"
             stroke="#eb6e1a"
             strokeWidth={2}
             type="monotone"
@@ -103,7 +103,7 @@ export const DealPriceHistoryChart = ({ points, currency }: DealPriceHistoryChar
             connectNulls
             dataKey="originalPrice"
             dot={false}
-            name="Gia goc"
+            name="Giá gốc"
             stroke="#7f8793"
             strokeDasharray="5 5"
             strokeWidth={2}

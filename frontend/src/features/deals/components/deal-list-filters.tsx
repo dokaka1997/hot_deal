@@ -2,11 +2,18 @@
 
 import { Button, Input, Select } from "@/components/ui";
 import type { DealFilterState } from "@/features/deals/types";
-import { DEAL_SORT_FIELDS } from "@/types/requests";
-import { SORT_DIRECTIONS } from "@/types/contracts/backend";
+import { DEAL_SORT_PRESETS, getDealSortPreset, resolveDealSortPreset } from "@/features/deals/utils";
+
+export interface DealFilterOption {
+  value: string;
+  label: string;
+  count?: number;
+}
 
 interface DealListFiltersProps {
   values: DealFilterState;
+  categoryOptions: DealFilterOption[];
+  sourceOptions: DealFilterOption[];
   onChange: (nextValues: Partial<DealFilterState>) => void;
   onReset: () => void;
   isUpdating?: boolean;
@@ -25,64 +32,108 @@ const parsePriceValue = (value: string): number | undefined => {
   return parsed;
 };
 
-export const DealListFilters = ({ values, onChange, onReset, isUpdating = false }: DealListFiltersProps) => {
+const toOptionLabel = (option: DealFilterOption): string => {
+  if (option.count === undefined) {
+    return option.label;
+  }
+
+  return `${option.label} (${option.count})`;
+};
+
+export const DealListFilters = ({
+  values,
+  categoryOptions,
+  sourceOptions,
+  onChange,
+  onReset,
+  isUpdating = false
+}: DealListFiltersProps) => {
   const minPrice = parsePriceValue(values.minPrice);
   const maxPrice = parsePriceValue(values.maxPrice);
-  const hasPriceRangeError =
-    minPrice !== undefined && maxPrice !== undefined && maxPrice < minPrice;
+  const hasPriceRangeError = minPrice !== undefined && maxPrice !== undefined && maxPrice < minPrice;
+  const activeSortPreset = resolveDealSortPreset(values.sortBy, values.direction);
 
   return (
     <section className="tool-surface space-y-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="space-y-1">
-          <p className="section-kicker">Bo loc deal</p>
-          <h1 className="text-heading-lg text-foreground">Tim deal theo nhu cau</h1>
+          <p className="section-kicker">Tìm và lọc</p>
+          <h1 className="text-heading-lg text-foreground">Danh sách ưu đãi công khai</h1>
           <p className="text-body-sm text-muted-foreground">
-            Loc theo tu khoa, danh muc, nguon va khoang gia de chot deal nhanh hon.
+            Tìm theo tên sản phẩm, lọc theo danh mục/nguồn/giá và sắp xếp để chọn ưu đãi nhanh.
           </p>
         </div>
 
         <Button onClick={onReset} type="button" variant="secondary">
-          Dat lai bo loc
+          Đặt lại bộ lọc
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-        <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Tu khoa</span>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-5">
+        <label className="space-y-1 xl:col-span-2">
+          <span className="text-sm font-semibold text-foreground">Từ khóa</span>
           <Input
             onChange={(event) => onChange({ keyword: event.target.value })}
-            placeholder="Tim theo ten, thuong hieu, danh muc"
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                onChange({ keyword: event.currentTarget.value });
+              }
+            }}
+            placeholder="Ví dụ: iPhone, AirPods, Nike..."
             value={values.keyword}
           />
         </label>
 
         <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Danh muc</span>
-          <Input
-            onChange={(event) => onChange({ category: event.target.value })}
-            placeholder="Vi du: electronics"
-            value={values.category}
-          />
+          <span className="text-sm font-semibold text-foreground">Sắp xếp</span>
+          <Select
+            onChange={(event) => {
+              const preset = getDealSortPreset(event.target.value as typeof activeSortPreset);
+              onChange({ sortBy: preset.sortBy, direction: preset.direction });
+            }}
+            value={activeSortPreset}
+          >
+            {DEAL_SORT_PRESETS.map((preset) => (
+              <option key={preset.key} value={preset.key}>
+                {preset.label}
+              </option>
+            ))}
+          </Select>
         </label>
 
         <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Nguon</span>
-          <Input
-            onChange={(event) => onChange({ source: event.target.value })}
-            placeholder="Vi du: mock_deals"
-            value={values.source}
-          />
+          <span className="text-sm font-semibold text-foreground">Danh mục</span>
+          <Select onChange={(event) => onChange({ category: event.target.value })} value={values.category}>
+            <option value="">Tất cả danh mục</option>
+            {categoryOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {toOptionLabel(option)}
+              </option>
+            ))}
+          </Select>
+        </label>
+
+        <label className="space-y-1">
+          <span className="text-sm font-semibold text-foreground">Nguồn / Shop</span>
+          <Select onChange={(event) => onChange({ source: event.target.value })} value={values.source}>
+            <option value="">Tất cả nguồn</option>
+            {sourceOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {toOptionLabel(option)}
+              </option>
+            ))}
+          </Select>
         </label>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-5">
         <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Gia tu</span>
+          <span className="text-sm font-semibold text-foreground">Giá từ</span>
           <Input
             min={0}
             onChange={(event) => onChange({ minPrice: event.target.value })}
-            placeholder="0.00"
+            placeholder="0"
             step="0.01"
             type="number"
             value={values.minPrice}
@@ -90,11 +141,11 @@ export const DealListFilters = ({ values, onChange, onReset, isUpdating = false 
         </label>
 
         <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Gia den</span>
+          <span className="text-sm font-semibold text-foreground">Giá đến</span>
           <Input
             min={0}
             onChange={(event) => onChange({ maxPrice: event.target.value })}
-            placeholder="1000.00"
+            placeholder="50000000"
             step="0.01"
             type="number"
             value={values.maxPrice}
@@ -102,45 +153,20 @@ export const DealListFilters = ({ values, onChange, onReset, isUpdating = false 
         </label>
 
         <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Sap xep theo</span>
-          <Select onChange={(event) => onChange({ sortBy: event.target.value as DealFilterState["sortBy"] })} value={values.sortBy}>
-            {DEAL_SORT_FIELDS.map((field) => (
-              <option key={field} value={field}>
-                {field}
-              </option>
-            ))}
+          <span className="text-sm font-semibold text-foreground">Mã giảm giá</span>
+          <Select
+            onChange={(event) => onChange({ hasCoupon: event.target.value as DealFilterState["hasCoupon"] })}
+            value={values.hasCoupon}
+          >
+            <option value="all">Tất cả ưu đãi</option>
+            <option value="withCoupon">Chỉ ưu đãi có mã</option>
+            <option value="withoutCoupon">Không có mã</option>
           </Select>
         </label>
 
         <label className="space-y-1">
-          <span className="text-sm font-semibold text-foreground">Thu tu</span>
-          <Select
-            onChange={(event) => onChange({ direction: event.target.value as DealFilterState["direction"] })}
-            value={values.direction}
-          >
-            {SORT_DIRECTIONS.map((direction) => (
-              <option key={direction} value={direction}>
-                {direction}
-              </option>
-            ))}
-          </Select>
-        </label>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-4">
-        <label className="inline-flex items-center gap-2 text-sm text-foreground">
-          <input
-            checked={values.activeOnly}
-            className="h-4 w-4 rounded-sm border-border text-brand focus:ring-brand"
-            onChange={(event) => onChange({ activeOnly: event.target.checked })}
-            type="checkbox"
-          />
-          Chi hien deal dang hoat dong
-        </label>
-
-        <label className="inline-flex items-center gap-2">
-          <span className="text-sm font-semibold text-foreground">So luong/trang</span>
-          <Select className="w-28" onChange={(event) => onChange({ size: Number(event.target.value) })} value={String(values.size)}>
+          <span className="text-sm font-semibold text-foreground">Số lượng/trang</span>
+          <Select className="w-full" onChange={(event) => onChange({ size: Number(event.target.value) })} value={String(values.size)}>
             {[12, 20, 40].map((sizeOption) => (
               <option key={sizeOption} value={sizeOption}>
                 {sizeOption}
@@ -149,12 +175,29 @@ export const DealListFilters = ({ values, onChange, onReset, isUpdating = false 
           </Select>
         </label>
 
-        {isUpdating ? <p className="text-sm text-muted-foreground">Dang cap nhat ket qua...</p> : null}
+        <div className="space-y-1">
+          <span className="text-sm font-semibold text-foreground">Trạng thái</span>
+          <label className="flex h-10 items-center gap-2 rounded-md border border-border bg-surface px-3">
+            <input
+              checked={values.activeOnly}
+              className="h-4 w-4 rounded-sm border-border text-brand focus:ring-brand"
+              onChange={(event) => onChange({ activeOnly: event.target.checked })}
+              type="checkbox"
+            />
+            <span className="text-sm text-foreground">Chỉ ưu đãi đang hoạt động</span>
+          </label>
+        </div>
       </div>
 
-      {hasPriceRangeError ? (
-        <p className="text-sm text-danger">Gia den phai lon hon hoac bang gia tu.</p>
-      ) : null}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        {hasPriceRangeError ? (
+          <p className="text-sm text-danger">Giá đến phải lớn hơn hoặc bằng giá từ.</p>
+        ) : (
+          <p className="text-sm text-muted-foreground">Thay đổi bộ lọc sẽ tự động về trang 1 và cập nhật URL.</p>
+        )}
+
+        {isUpdating ? <p className="text-sm text-muted-foreground">Đang cập nhật kết quả...</p> : null}
+      </div>
     </section>
   );
 };

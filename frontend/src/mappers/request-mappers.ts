@@ -64,6 +64,7 @@ export const toDealSearchQuery = (request: DealSearchRequest): QueryParams => {
     minPrice,
     maxPrice: hasValidPriceRange ? maxPrice : undefined,
     activeOnly: request.activeOnly,
+    hasCoupon: request.hasCoupon,
     page: normalizePage(request.page),
     size: normalizePageSize(request.size),
     sortBy: request.sortBy,

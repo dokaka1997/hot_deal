@@ -1,4 +1,5 @@
 export * from "@/features/deals/components/deal-card";
+export * from "@/features/deals/components/deal-applied-filters";
 export * from "@/features/deals/components/deal-detail-header";
 export * from "@/features/deals/components/deal-detail-metadata";
 export * from "@/features/deals/components/deal-grid";

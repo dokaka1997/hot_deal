@@ -17,5 +17,6 @@ export interface DealSearchRequest extends Omit<PaginationRequest, "sortBy"> {
   minPrice?: number;
   maxPrice?: number;
   activeOnly?: boolean;
+  hasCoupon?: boolean;
   sortBy?: DealSortField;
 }

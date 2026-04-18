@@ -50,21 +50,21 @@ export const DealPriceHistorySection = ({
     <section className="section-surface space-y-4">
       <div className="section-head">
         <div>
-          <p className="section-kicker">Theo doi gia</p>
-          <h2 className="text-heading-lg text-foreground">Lich su gia</h2>
-          <p className="text-body-sm text-muted-foreground">Dien bien gia gan day cua deal nay.</p>
+          <p className="section-kicker">Theo dõi giá</p>
+          <h2 className="text-heading-lg text-foreground">Lịch sử giá</h2>
+          <p className="text-body-sm text-muted-foreground">Diễn biến giá gần đây của ưu đãi này.</p>
         </div>
-        {isUpdating ? <p className="text-sm text-muted-foreground">Dang lam moi lich su...</p> : null}
+        {isUpdating ? <p className="text-sm text-muted-foreground">Đang làm mới dữ liệu...</p> : null}
       </div>
 
-      {isPending ? <LoadingState description="Dang tai lich su gia..." /> : null}
+      {isPending ? <LoadingState description="Đang tải lịch sử giá..." /> : null}
 
       {isError ? <ErrorState error={error} onRetry={onRetry} /> : null}
 
       {!isPending && !isError && !points.length ? (
         <EmptyState
-          description="Deal nay chua co du lieu lich su gia."
-          title="Chua co lich su gia"
+          description="Ưu đãi này chưa có dữ liệu lịch sử giá."
+          title="Chưa có lịch sử giá"
         />
       ) : null}
 
@@ -76,7 +76,7 @@ export const DealPriceHistorySection = ({
               return (
                 <>
                   <Card as="article" className="p-4">
-                    <p className="text-xs font-semibold uppercase text-muted-foreground">Gia moi nhat</p>
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">Giá mới nhất</p>
                     <p className="mt-1 text-lg font-semibold text-foreground">
                       {formatPriceValue(stats.latestPoint.dealPrice, currency)}
                     </p>
@@ -85,13 +85,13 @@ export const DealPriceHistorySection = ({
                     </p>
                   </Card>
                   <Card as="article" className="p-4">
-                    <p className="text-xs font-semibold uppercase text-muted-foreground">Gia thap nhat</p>
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">Giá thấp nhất</p>
                     <p className="mt-1 text-lg font-semibold text-brand-700">
                       {formatPriceValue(stats.lowestDealPrice, currency)}
                     </p>
                   </Card>
                   <Card as="article" className="p-4">
-                    <p className="text-xs font-semibold uppercase text-muted-foreground">Gia cao nhat</p>
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">Giá cao nhất</p>
                     <p className="mt-1 text-lg font-semibold text-foreground">
                       {formatPriceValue(stats.highestDealPrice, currency)}
                     </p>

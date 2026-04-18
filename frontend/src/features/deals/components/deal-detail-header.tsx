@@ -15,6 +15,12 @@ const statusClassMap: Record<DealDetail["status"], string> = {
   INACTIVE: "border-warning/35 bg-warning/10 text-foreground"
 };
 
+const statusLabelMap: Record<DealDetail["status"], string> = {
+  ACTIVE: "Đang hoạt động",
+  EXPIRED: "Đã hết hạn",
+  INACTIVE: "Tạm ẩn"
+};
+
 export const DealDetailHeader = ({ deal }: { deal: DealDetail }) => {
   return (
     <section className="grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_1fr]">
@@ -29,18 +35,16 @@ export const DealDetailHeader = ({ deal }: { deal: DealDetail }) => {
       <Card as="article" className="space-y-4">
         <div className="flex flex-wrap items-center gap-2">
           <Badge className={statusClassMap[deal.status]} variant="default">
-            {deal.status}
+            {statusLabelMap[deal.status]}
           </Badge>
           <SourceBadge sourceCode={deal.source.code} sourceName={deal.source.name} />
-          {deal.category ? (
-            <Badge variant="brand">{deal.category}</Badge>
-          ) : null}
+          {deal.category ? <Badge variant="brand">{deal.category}</Badge> : null}
         </div>
 
         <div className="space-y-1">
           <h1 className="text-display-sm text-foreground">{deal.title}</h1>
           <p className="text-body-sm text-muted-foreground">
-            {[deal.brand, deal.source.name || deal.source.code].filter(Boolean).join(" - ") || "Nguon khong xac dinh"}
+            {[deal.brand, deal.source.name || deal.source.code].filter(Boolean).join(" - ") || "Nguồn không xác định"}
           </p>
         </div>
 
@@ -54,9 +58,9 @@ export const DealDetailHeader = ({ deal }: { deal: DealDetail }) => {
         />
 
         <div className="space-y-1 text-sm text-muted-foreground">
-          {deal.lastSeenAt ? <p>Cap nhat: {formatDateTime(deal.lastSeenAt)}</p> : null}
-          {deal.validUntil ? <p>Han deal: {formatDateTime(deal.validUntil)}</p> : null}
-          {deal.dealScore !== null ? <p>Diem deal: {deal.dealScore.toFixed(2)}</p> : null}
+          {deal.lastSeenAt ? <p>Cập nhật: {formatDateTime(deal.lastSeenAt)}</p> : null}
+          {deal.validUntil ? <p>Hạn ưu đãi: {formatDateTime(deal.validUntil)}</p> : null}
+          {deal.dealScore !== null ? <p>Điểm ưu đãi: {deal.dealScore.toFixed(2)}</p> : null}
         </div>
 
         <div className="flex flex-wrap items-center gap-2 pt-1">
@@ -64,7 +68,7 @@ export const DealDetailHeader = ({ deal }: { deal: DealDetail }) => {
             className="inline-flex h-10 items-center rounded-sm border border-brand/25 bg-brand-soft px-3 text-sm font-semibold text-brand-700 hover:bg-brand/15"
             href={APP_ROUTES.public.deals}
           >
-            Quay lai listing
+            Quay lại danh sách
           </Link>
           {deal.externalUrl ? (
             <a
@@ -73,11 +77,11 @@ export const DealDetailHeader = ({ deal }: { deal: DealDetail }) => {
               rel="noreferrer noopener"
               target="_blank"
             >
-              Mo uu dai goc
+              Mở ưu đãi gốc
             </a>
           ) : (
             <span className="inline-flex h-10 items-center rounded-sm border border-border bg-surface-muted px-3 text-sm text-muted-foreground">
-              Nguon tam het link
+              Nguồn tạm hết liên kết
             </span>
           )}
         </div>

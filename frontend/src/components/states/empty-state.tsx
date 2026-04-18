@@ -11,8 +11,8 @@ interface EmptyStateProps {
 }
 
 export const EmptyState = ({
-  title = "Khong co ket qua",
-  description = "Hay dieu chinh bo loc hoac quay lai sau.",
+  title = "Không có kết quả",
+  description = "Hãy điều chỉnh bộ lọc hoặc quay lại sau.",
   action,
   className
 }: EmptyStateProps) => {
