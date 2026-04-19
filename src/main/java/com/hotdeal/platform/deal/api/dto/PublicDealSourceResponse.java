@@ -7,6 +7,8 @@ public record PublicDealSourceResponse(
         @Schema(example = "mock_deals")
         String code,
         @Schema(example = "Mock Deals")
-        String name
+        String name,
+        @Schema(example = "https://mock.example")
+        String baseUrl
 ) {
 }

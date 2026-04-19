@@ -6,6 +6,8 @@ import com.hotdeal.platform.common.pagination.PageResponse;
 import com.hotdeal.platform.common.web.BaseApiController;
 import com.hotdeal.platform.deal.api.dto.PublicDealDetailResponse;
 import com.hotdeal.platform.deal.api.dto.PublicDealListItemResponse;
+import com.hotdeal.platform.deal.api.dto.PublicDealPriceHistoryRequest;
+import com.hotdeal.platform.deal.api.dto.PublicDealPriceHistoryResponse;
 import com.hotdeal.platform.deal.api.dto.PublicDealSearchRequest;
 import com.hotdeal.platform.deal.application.PublicDealQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -73,6 +75,23 @@ public class PublicDealController extends BaseApiController {
             @Parameter(description = "Deal identifier", example = "9021")
             @PathVariable @Positive(message = "{deal.query.id.positive}") Long dealId) {
         PublicDealDetailResponse data = publicDealQueryService.getDetail(dealId);
+        return ok(httpServletRequest, data);
+    }
+
+    @GetMapping("/{dealId}/price-history")
+    @Operation(summary = "Get deal price history", description = "Returns historical price points for a deal.")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Deal price history retrieved")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "404",
+            description = "Deal not found",
+            content = @Content(schema = @Schema(implementation = ApiResponse.class))
+    )
+    public ResponseEntity<ApiResponse<PublicDealPriceHistoryResponse>> getDealPriceHistory(
+            HttpServletRequest httpServletRequest,
+            @Parameter(description = "Deal identifier", example = "9021")
+            @PathVariable @Positive(message = "{deal.query.id.positive}") Long dealId,
+            @ParameterObject @Valid @ModelAttribute PublicDealPriceHistoryRequest request) {
+        PublicDealPriceHistoryResponse data = publicDealQueryService.getPriceHistory(dealId, request);
         return ok(httpServletRequest, data);
     }
 }

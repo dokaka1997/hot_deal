@@ -71,4 +71,14 @@ public final class DealSpecifications {
                 )
         );
     }
+
+    public static Specification<DealEntity> hasCoupon(Boolean hasCoupon) {
+        if (hasCoupon == null) {
+            return null;
+        }
+        if (hasCoupon) {
+            return (root, query, builder) -> builder.isNotNull(root.get("couponCode"));
+        }
+        return (root, query, builder) -> builder.isNull(root.get("couponCode"));
+    }
 }

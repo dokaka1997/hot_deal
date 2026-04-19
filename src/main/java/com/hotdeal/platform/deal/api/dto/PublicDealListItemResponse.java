@@ -12,18 +12,24 @@ public record PublicDealListItemResponse(
         Long id,
         @Schema(example = "Apple iPhone 15 128GB - 20% Off")
         String title,
+        String normalizedTitle,
+        String description,
         String brand,
         String category,
         String imageUrl,
         String externalUrl,
+        String couponCode,
         String currency,
         BigDecimal originalPrice,
         BigDecimal dealPrice,
         BigDecimal discountPercent,
         BigDecimal dealScore,
         DealStatus status,
+        OffsetDateTime validFrom,
         OffsetDateTime validUntil,
+        OffsetDateTime firstSeenAt,
         OffsetDateTime lastSeenAt,
-        PublicDealSourceResponse source
+        PublicDealSourceResponse source,
+        PublicDealProductResponse product
 ) {
 }

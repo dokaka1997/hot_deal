@@ -1,6 +1,8 @@
 package com.hotdeal.platform.deal.persistence.repository;
 
 import com.hotdeal.platform.deal.persistence.entity.PriceHistoryEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -15,6 +17,8 @@ public interface PriceHistoryRepository extends JpaRepository<PriceHistoryEntity
     Optional<PriceHistoryEntity> findTopByDealIdOrderByCapturedAtDesc(Long dealId);
 
     List<PriceHistoryEntity> findTop100ByDealIdOrderByCapturedAtDesc(Long dealId);
+
+    Page<PriceHistoryEntity> findByDealId(Long dealId, Pageable pageable);
 
     @Query("""
             select min(ph.dealPrice)

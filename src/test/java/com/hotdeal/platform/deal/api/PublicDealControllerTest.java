@@ -45,19 +45,25 @@ class PublicDealControllerTest {
         PublicDealListItemResponse item = new PublicDealListItemResponse(
                 101L,
                 "Apple iPhone 15 Pro",
+                "apple iphone 15 pro",
+                "Flagship deal",
                 "Apple",
                 "electronics",
                 "https://cdn.example.com/iphone.jpg",
                 "https://shop.example.com/deals/101",
+                "SAVE15",
                 "USD",
                 new BigDecimal("1199.00"),
                 new BigDecimal("999.00"),
                 new BigDecimal("16.68"),
                 new BigDecimal("92.50"),
                 DealStatus.ACTIVE,
+                OffsetDateTime.parse("2026-04-01T00:00:00Z"),
                 OffsetDateTime.parse("2026-04-30T23:59:00Z"),
+                OffsetDateTime.parse("2026-03-30T09:00:00Z"),
                 OffsetDateTime.parse("2026-04-15T10:00:00Z"),
-                new PublicDealSourceResponse("mock_deals", "Mock Deals")
+                new PublicDealSourceResponse("mock_deals", "Mock Deals", "https://mock.example"),
+                new PublicDealProductResponse(1L, "Apple iPhone 15 Pro", "Apple", "electronics")
         );
         PageResponse<PublicDealListItemResponse> pageResponse = new PageResponse<>(
                 List.of(item),
@@ -130,7 +136,7 @@ class PublicDealControllerTest {
                 OffsetDateTime.parse("2026-04-20T23:59:00Z"),
                 OffsetDateTime.parse("2026-04-10T00:00:00Z"),
                 OffsetDateTime.parse("2026-04-15T08:00:00Z"),
-                new PublicDealSourceResponse("mock_deals", "Mock Deals"),
+                new PublicDealSourceResponse("mock_deals", "Mock Deals", "https://mock.example"),
                 new PublicDealProductResponse(501L, "Sony WH-1000XM5", "Sony", "audio")
         );
         Mockito.when(publicDealQueryService.getDetail(201L)).thenReturn(detail);

@@ -5,6 +5,7 @@ import com.hotdeal.platform.deal.persistence.entity.DealEntity;
 import com.hotdeal.platform.deal.persistence.entity.DealStatus;
 import com.hotdeal.platform.deal.persistence.repository.projection.CategoryDealCountProjection;
 import com.hotdeal.platform.deal.persistence.repository.projection.SourceDealCountProjection;
+import com.hotdeal.platform.deal.persistence.spec.DealSpecifications;
 import com.hotdeal.platform.ingestion.persistence.entity.SourceEntity;
 import com.hotdeal.platform.ingestion.persistence.repository.SourceRepository;
 import com.hotdeal.platform.support.PostgresContainerSupport;
@@ -119,5 +120,47 @@ class DealRepositoryIntegrationTest extends PostgresContainerSupport {
         assertThat(hottestDeals)
                 .extracting(DealEntity::getSourceDealId)
                 .containsExactly("a-2", "a-1");
+    }
+
+    @Test
+    void findAll_shouldSupportHasCouponSpecification() {
+        SourceEntity source = sourceRepository.save(SourceEntityTestBuilder.aSource()
+                .withCode("coupon_source")
+                .withName("Coupon Source")
+                .build());
+
+        DealEntity withCoupon = DealEntityTestBuilder.aDeal()
+                .withSource(source)
+                .withSourceDealId("coupon-1")
+                .withStatus(DealStatus.ACTIVE)
+                .build();
+        withCoupon.setCouponCode("SAVE30");
+
+        DealEntity withoutCoupon = DealEntityTestBuilder.aDeal()
+                .withSource(source)
+                .withSourceDealId("coupon-2")
+                .withStatus(DealStatus.ACTIVE)
+                .build();
+        withoutCoupon.setCouponCode(null);
+
+        dealRepository.saveAll(List.of(withCoupon, withoutCoupon));
+
+        var couponOnlyPage = dealRepository.findAll(
+                DealSpecifications.hasCoupon(true),
+                PageRequest.of(0, 10)
+        );
+        var nonCouponPage = dealRepository.findAll(
+                DealSpecifications.hasCoupon(false),
+                PageRequest.of(0, 10)
+        );
+
+        assertThat(couponOnlyPage.getContent())
+                .extracting(DealEntity::getSourceDealId)
+                .containsExactly("coupon-1");
+
+        assertThat(nonCouponPage.getContent())
+                .extracting(DealEntity::getSourceDealId)
+                .contains("coupon-2")
+                .doesNotContain("coupon-1");
     }
 }

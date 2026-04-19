@@ -34,6 +34,9 @@ public class PublicDealSearchRequest extends PageQuery {
     @Schema(description = "Return only active deals.", defaultValue = "true")
     private boolean activeOnly = true;
 
+    @Schema(description = "Coupon filter. true = only deals with coupon code, false = only deals without coupon, null = all.")
+    private Boolean hasCoupon;
+
     public PublicDealSearchRequest() {
         setSortBy("lastSeenAt");
     }
@@ -84,6 +87,14 @@ public class PublicDealSearchRequest extends PageQuery {
 
     public void setActiveOnly(boolean activeOnly) {
         this.activeOnly = activeOnly;
+    }
+
+    public Boolean getHasCoupon() {
+        return hasCoupon;
+    }
+
+    public void setHasCoupon(Boolean hasCoupon) {
+        this.hasCoupon = hasCoupon;
     }
 
     @AssertTrue(message = "{deal.query.price.range.invalid}")
